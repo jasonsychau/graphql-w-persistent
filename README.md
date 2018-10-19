@@ -15,20 +15,20 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | Feature  | Present | Comments |
 |----------|:-------:|----------|
 | arguments to fields (optional/not and default value) | :heavy_check_mark: | 1.0.1.0 |
-| data transformation arguments on scalar fields | | soon |
+| data transformation arguments on scalar fields | | :thought_balloon: |
 | aliases | :heavy_check_mark: | 1.0.1.* |
 | named fragments | :heavy_check_mark: | 1.0.1.0 |
-| operation names | | |
-| variables (default value and required/not) | | |
+| operation names | | :thought_balloon: |
+| variables (default value and required/not) | | :thought_balloon: |
 | directives | | |
-| mutations  | | |
-| inline fragments | | |
+| mutations  | | :thought_balloon: |
+| inline fragments | | :thought_balloon: |
 | meta fields | | |
 | non-null implementation and non-null errors (on data types and arguments) | | |
 | interfaces to type heirarchy | :heavy_check_mark: | 1.0.0 |
 | input types | | |
 | introspection | | |
-| pagination | | |
+| pagination | | :thought_balloon: |
 | authorization moderated fields and null types (authorization layer before GraphQL) | | |
 | pagination for long lists (as transformations) | | |
 | server-defined fields (like counts/previews from the thinking in graphs page) and user-designed schema | | |
