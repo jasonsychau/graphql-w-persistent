@@ -28,7 +28,7 @@ import qualified GraphQL as GL
 
 -- COMMENT: CONFIGURE DATABASE AND DATA MODELS
 share [mkPersist sqlSettings, mkMigrate "migrateAll"]
-    $(persistFileWith Q.lowerCaseSettings "config/models")
+    $(persistFileWith Q.lowerCaseSettings "models")
 
 -- COMMENT: MAKE APP/SITE INSTANCE
 data App = App ConnectionPool
@@ -448,7 +448,7 @@ postQueryR = do
             let processedResults = GL.processPersistentData queryResults rootObjs
             defaultLayout
                 [whamlet|
-                    <p>#{show processedResults}
+                    <p>#{processedResults}
                     <a href=@{HomeR}>Home
                 |]
         -- COMMENT: IN CASE FORM IS INCOMPLETE, WE RETURN TO THE FORM
