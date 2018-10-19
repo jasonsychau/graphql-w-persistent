@@ -39,8 +39,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 
 #### set-up
 
-1. make sure that you have [Stack program and compilers](https://haskell-lang.org/get-started) 
-   or [only Stack program](https://docs.haskellstack.org/en/stable/install_and_upgrade/).
+1. make sure that you have [Stack program and compilers](https://haskell-lang.org/get-started).
 
 2. install package (there maybe is a later version)
 
