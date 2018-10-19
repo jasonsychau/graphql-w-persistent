@@ -52,4 +52,4 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 stack runghc demonstration.hs
 ```
 
-At localhost:3000, the above text box is the GraphQL question box. Underneath is area to add or delete database data.
+At localhost:3000, the topmost text box is the GraphQL question box. Underneath is an area to add or delete database data.
