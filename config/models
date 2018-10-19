@@ -1,0 +1,41 @@
+-- By default this file is used by `persistFileWith` in Model.hs (which is imported by Foundation.hs)
+-- Syntax for this file here: https://github.com/yesodweb/persistent/blob/master/docs/Persistent-entity-syntax.md
+
+
+Person
+    name Text
+    gender Bool
+    deriving Show Read
+Family
+    name Text
+    UniqueFamily name sql=UniqFamily
+    deriving Show Read
+Genus
+    name Text
+    familyId FamilyId
+    UniqueGenus name familyId sql=UniqGenus
+    deriving Show Read
+Species
+    name Text
+    genusId GenusId
+    UniqueSpeciesName name genusId sql=UniqSpecies
+    deriving Show Read
+Breed
+    name Text
+    speciesId SpeciesId
+    UniqueBreedName name speciesId sql=UniqBreed
+    deriving Show Read
+Pet
+    name Text
+    gender Bool
+    deriving Show Read
+PetType
+    petId PetId
+    breedId BreedId
+    UniqueType petId breedId sql=UniqPettype
+    deriving Show Read
+PetOwnership
+    ownerId PersonId
+    animalId PetId
+    UniqueOwnership ownerId animalId sql=UniqOwnership
+    deriving Show Read
