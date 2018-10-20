@@ -58,3 +58,5 @@ stack runghc demonstration.hs
 ```
 
 At localhost:3000, the topmost text box is the GraphQL question box. Underneath is an area to add or delete database data.
+
+A fun query is {taxonomy{name,pet{name}}} ...enjoy!
