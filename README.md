@@ -18,9 +18,9 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 
 | Feature  | Present | Comments |
 |----------|:-------:|----------|
-| arguments to fields (optional/not and default value) | :heavy_check_mark: | 1.0.1.0 |
+| arguments to fields (optional/not and default value) | :heavy_check_mark: | 1.0.1.4 |
 | data transformation arguments on scalar fields | | :thought_balloon: |
-| aliases | :heavy_check_mark: | 1.0.1.* |
+| aliases | :heavy_check_mark: | 1.0.1.0 |
 | named fragments | :heavy_check_mark: | 1.0.1.0 |
 | operation names | | :thought_balloon: |
 | variables (default value and required/not) | | :thought_balloon: |
@@ -29,7 +29,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | inline fragments | | :thought_balloon: |
 | meta fields | | |
 | non-null implementation and non-null errors (on data types and arguments) | | |
-| interfaces to type heirarchy | :heavy_check_mark: | 1.0.0 |
+| interfaces to type heirarchy | :heavy_check_mark: | 1.0.4 |
 | input types | | |
 | introspection | | |
 | pagination | | :thought_balloon: |
