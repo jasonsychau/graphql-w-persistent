@@ -4,6 +4,12 @@
 
 ### News and updates
 
+**2018-10-22 -** I owe all my 103 downloaders on my first week a big apology. I gave you all incorrect instructions on giving your schema: on the fifth list where relationship tables are given, the first two tuple strings are database table names. They are not ServerObject strings nor pseudonym strings. In addition, the first list is supposed to store pseudonyms from being nested object fields. You can check the updated Hackage information to know more. I'm sorry!
+
+On another note, I've added an attribute that I didn't initially list. I've added the revision and error throwing of duplicated queries. Duplicate queries are now supposedly collapsed to a single query with union fields. I appreciate your support.
+
+All these are in the version 0.1.0.5.
+
 **2018-10-19 -** I appreciate the more downloads, and I also found another bug where parent entities are not returning every children data. I will look into this asap...
 
 ...Bugs are fixed. Arguments and type heirarchies are working as expected...thanks for you patience!
@@ -18,7 +24,8 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 
 | Feature  | Present | Comments |
 |----------|:-------:|----------|
-| arguments to fields (optional/not and default value) | :heavy_check_mark: | 1.0.1.4 |
+| argument to root objects | :heavy_check_mark: | 0.1.0.4 |
+| arguments to fields (optional/not and default value) | | |
 | data transformation arguments on scalar fields | | :thought_balloon: |
 | aliases | :heavy_check_mark: | 1.0.1.0 |
 | named fragments | :heavy_check_mark: | 1.0.1.0 |
@@ -48,7 +55,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 2. install package (there maybe is a later version)
 
     ```
-    stack install graphql-w-persist-0.1.0.4
+    stack install graphql-w-persist-0.1.0.5
     ```
 
 #### run
