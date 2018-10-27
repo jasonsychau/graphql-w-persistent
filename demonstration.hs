@@ -441,11 +441,20 @@ postQueryR = do
     case result of
         -- COMMENT: IF FORM IS SUCCESSFUL INPUTS, DATA IS PROCESSED
         FormSuccess (GivenQuery str) -> do
-            -- here parse the given query string to make desired query
             let string = tail $ init $ show $ unTextarea str
-            let (rootObjs,sqlQueries) = GL.processQueryString string svrobjs sss sos sodn sor 
-            queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) sqlQueries
-            let processedResults = GL.processPersistentData queryResults rootObjs
+            -- -- parse the given query string to make desired query
+            -- let (rootObjs,sqlQueries) = GL.processQueryString string svrobjs sss sos sodn sor 
+            -- -- query
+            -- queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) sqlQueries
+            -- -- process data
+            -- let processedResults = GL.processPersistentData queryResults rootObjs
+
+            -- with json file
+            parse <- GL.processQueryStringWithJson string "serverschema.json"
+            let (serverObjects,queries) = parse
+            queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
+            let processedResults = GL.processPersistentData queryResults serverObjects
+            
             defaultLayout
                 [whamlet|
                     <p>#{processedResults}
