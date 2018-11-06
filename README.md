@@ -4,6 +4,12 @@
 
 ### News and updates
 
+**2018-11-05 -** Version 0.2.0.1 is out. We've included variables on your queries. We don't have support for not-null variables, but we'll look into it in the future. This change is an api-breaking change since we're including type-matching between variables and subfields. As a consequence, your schema is changed to include types. You can look at example on the [hackage page]() as guidance. With the next version, we will include casting, so you're results are not only text values.
+
+Another note is of our example case were we used show on form response values. We couldn't interpret double quotes, but this is now changed to unpack. You now can use the double quotes in you queries.
+
+Here's a question: I am now removing all \n\r linebreak characters from the query since the textarea form field is putting these into the return value. Is removing all these a problem to anyone and their data or arguments?
+
 **2018-10-26 -** Version 0.1.0.7 is including schema set-up with json file. This is via the new function processQueryStringWithJson (Yes, I'm supposed to make version 0.1.1.0. I think that it's okay.). You can read about the json file format on the [module page](http://hackage.haskell.org/package/graphql-w-persistent-0.1.0.7/docs/GraphQL.html "GraphQL module"). The idea is to make more straightforward of detailing your schema.
 
 **2018-10-22 -** I owe all my 103 downloaders on my first week a big apology. I gave you all incorrect instructions on giving your schema: on the fifth list where relationship tables are given, the first two tuple strings are database table names. They are not ServerObject strings nor pseudonym strings. In addition, the first list is supposed to store pseudonyms from being nested object fields. You can check the updated Hackage information to know more. I'm sorry (somebody can maybe find a QA programming internship to learn how can I test my code?)!
@@ -27,18 +33,17 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | Feature  | Present | Comments |
 |----------|:-------:|----------|
 | argument to root objects | :heavy_check_mark: | 0.1.0.4 |
-| arguments to fields (optional/not and default value) | | |
 | data transformation arguments on scalar fields | | :thought_balloon: |
 | aliases | :heavy_check_mark: | 1.0.1.0 |
-| named fragments | :heavy_check_mark: | 1.0.1.0 |
+| named fragments | :heavy_check_mark: | 0.1.0.1 |
 | operation names | | :thought_balloon: |
-| variables (default value and required/not) | | :thought_balloon: |
+| variables (default value ~~and required/not~~) | :heavy_check_mark: | 0.2.0.0 |
 | directives | | |
 | mutations  | | :thought_balloon: |
 | inline fragments | | :thought_balloon: |
 | meta fields | | |
 | non-null implementation and non-null errors (on data types and arguments) | | |
-| interfaces to type heirarchy | :heavy_check_mark: | 1.0.4 |
+| interfaces to type heirarchy | :heavy_check_mark: | 0.1.0.4 |
 | input types | | |
 | introspection | | |
 | pagination | | :thought_balloon: |
@@ -57,7 +62,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 2. install package (there maybe is a later version)
 
     ```
-    stack install graphql-w-persist-0.1.0.7
+    stack install graphql-w-persist-0.2.0.0
     ```
 
 #### run
@@ -66,6 +71,6 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 stack runghc demonstration.hs
 ```
 
-At localhost:3000, the topmost text box is the GraphQL question box. Underneath is an area to add or delete database data.
+At localhost:3000, the topmost text box is the GraphQL question box while below is the variables textbox. Underneath is an area to add or delete database data.
 
 A fun query is {taxonomy{name,pet{name}}} ...enjoy!

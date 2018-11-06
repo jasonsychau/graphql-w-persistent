@@ -19,6 +19,7 @@ import Control.Monad.Trans.Resource (runResourceT)
 import Control.Monad.Logger (runStderrLoggingT)
 import qualified Data.Aeson as A
 import Data.Either
+import Data.Maybe
 import Data.Text (Text,pack)
 import qualified Control.Exception as E
 import qualified Text.JSON as J
@@ -78,7 +79,8 @@ instance YJ.YesodJquery App
 -- The datatype we wish to receive from the form (as database Person Entity)
 -- COMMENT: DATA TYPE ATTRIBUTES ARE MAPPED TO FORM FIELDS
 data GivenQuery = GivenQuery {
-      str :: Textarea
+      str  :: Textarea,
+      vars :: Maybe Text
     } deriving (CP.Generic, Show)
 -- COMMENT: DECLARE MORE SETTINGS
 instance ToJSON GivenQuery where
@@ -89,6 +91,7 @@ instance FromJSON GivenQuery
 queryForm :: Html -> MForm Handler (FormResult GivenQuery, Widget)
 queryForm = renderBootstrap2 $ GivenQuery
     <$> areq textareaField "Query" Nothing
+    <*> aopt textField "Variables" Nothing
 personForm :: Html -> MForm Handler (FormResult Person, Widget)
 personForm = renderBootstrap2 $ Person
     <$> areq textField "Name" Nothing
@@ -440,21 +443,27 @@ postQueryR = do
     ((result, widget), enctype) <- runFormPost queryForm
     case result of
         -- COMMENT: IF FORM IS SUCCESSFUL INPUTS, DATA IS PROCESSED
-        FormSuccess (GivenQuery str) -> do
-            let string = tail $ init $ show $ unTextarea str
+        FormSuccess (GivenQuery txt1 txt2) -> do
+            let query = CP.unpack $ unTextarea txt1
+            let variables = if (txt2==Nothing) then "" else CP.unpack $ fromJust txt2
+
             -- -- parse the given query string to make desired query
-            -- let (rootObjs,sqlQueries) = GL.processQueryString string svrobjs sss sos sodn sor 
+            -- let (rootObjs,sqlQueries) = GL.processQueryString query svrobjs sss sos sodn sor 
             -- -- query
             -- queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) sqlQueries
             -- -- process data
             -- let processedResults = GL.processPersistentData queryResults rootObjs
 
             -- with json file
-            parse <- GL.processQueryStringWithJson string "serverschema.json"
-            let (serverObjects,queries) = parse
+            -- (serverObjects,queries) <- GL.processQueryStringWithJson query "serverschema.json"
+            -- queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
+            -- let processedResults = GL.processPersistentData queryResults serverObjects
+            
+            -- with variables
+            (serverObjects,queries) <- GL.processQueryStringWithJsonAndVariables query variables "serverschema.json"
             queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
             let processedResults = GL.processPersistentData queryResults serverObjects
-            
+
             defaultLayout
                 [whamlet|
                     <p>#{processedResults}
