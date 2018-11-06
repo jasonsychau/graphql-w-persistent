@@ -34,7 +34,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 |----------|:-------:|----------|
 | argument to root objects | :heavy_check_mark: | 0.1.0.4 |
 | data transformation arguments on scalar fields | | :thought_balloon: |
-| aliases | :heavy_check_mark: | 1.0.1.0 |
+| aliases | :heavy_check_mark: | 0.1.0.1 |
 | named fragments | :heavy_check_mark: | 0.1.0.1 |
 | operation names | | :thought_balloon: |
 | variables (default value ~~and required/not~~) | :heavy_check_mark: | 0.2.0.0 |
