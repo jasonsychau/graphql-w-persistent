@@ -2,9 +2,15 @@
 #### This is a GraphQL query parser and interpreter, and it is including data processing to return the GraphQL object formats.
 
 
-### News and updates
+### News Posts
 
-**2018-11-05 -** Version 0.2.0.1 is out. We've included variables on your queries. We don't have support for not-null variables, but we'll look into it in the future. This change is an api-breaking change since we're including type-matching between variables and subfields. As a consequence, your schema is changed to include types. You can look at example on the [hackage page]() as guidance. With the next version, we will include casting, so you're results are not only text values.
+**2018-11-06 -** Version 0.3.0.0 is here to save the day. Version 0.2.whatever is bugged. We could not make nested objects in queries. Newer version is fixing this bug. API is broken (in a good way for this time) by the processing data functions where you now pass your scalar field schemas. Another API change is the scalar field schema arguments are given with the types. This is explained in the last news post. Another API change is the returned values are cast if they are Int, Rational (as Decimal), or Double. This is shown in the json return string.
+
+Older news posts are moved to another file to not clutter this page.
+
+Another section is going to list the stable releases where major changes are observed...
+
+**2018-11-05 -** ~~Version 0.2.0.1 is out. We've included variables on your queries. We don't have support for not-null variables, but we'll look into it in the future. This change is an api-breaking change since we're including type-matching between variables and subfields. As a consequence, your schema is changed to include types. You can look at example on the [hackage page](http://hackage.haskell.org/package/graphql-w-persistent) as guidance. With the next version, we will include casting, so you're results are not only text values.~~
 
 Another note is of our example case were we used show on form response values. We couldn't interpret double quotes, but this is now changed to unpack. You now can use the double quotes in you queries.
 
@@ -18,13 +24,11 @@ On another note, I've added an attribute that I didn't initially list. I've adde
 
 All these are in the version 0.1.0.5.
 
-**2018-10-19 -** I appreciate the more downloads, and I also found another bug where parent entities are not returning every children data. I will look into this asap...
+##### Older news posts are found on [this page](https://github.com/jasonsychau/graphql-w-persistent/blob/master/oldnews.md).
 
-...Bugs are fixed. Arguments and type heirarchies are working as expected...thanks for you patience!
+### Stable Releases
 
-**2018-10-18 -** [First Hackage package release](https://hackage.haskell.org/package/graphql-w-persistent "graphql-w-persistent") is out. Querying database with multiple queries, aliases, and fragments is available while fields, linkages, and heirarchies are given to the user to define. Hopefully, more is to come!
-
-I appreciate the many downloads, but I'm also sorry about the rough start. Since before 0.1.0.3, I've encountered several bugs and several queries were throwing errors. Some of these are now picked out, and I hope that you'll spare your patience to not turn away. I did hurry myself to release this project, but I still hope to have given a worthwhile toolkit to you...thanks for reading!
+0.1.0.7
 
 ### Features
 

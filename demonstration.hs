@@ -452,17 +452,17 @@ postQueryR = do
             -- -- query
             -- queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) sqlQueries
             -- -- process data
-            -- let processedResults = GL.processPersistentData queryResults rootObjs
+            -- let processedResults = GL.processPersistentData sss queryResults rootObjs
 
             -- with json file
             -- (serverObjects,queries) <- GL.processQueryStringWithJson query "serverschema.json"
             -- queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
-            -- let processedResults = GL.processPersistentData queryResults serverObjects
+            -- processedResults <- GL.processPersistentData "serverschema.json" queryResults serverObjects
             
             -- with variables
             (serverObjects,queries) <- GL.processQueryStringWithJsonAndVariables query variables "serverschema.json"
             queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
-            let processedResults = GL.processPersistentData queryResults serverObjects
+            processedResults <- GL.processPersistentDataWithJson "serverschema.json" queryResults serverObjects
 
             defaultLayout
                 [whamlet|
