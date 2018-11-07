@@ -10,6 +10,17 @@ Older news posts are moved to another file to not clutter this page.
 
 Another section is going to list the stable releases where major changes are observed...
 
+There's one more thing to mention. The hackage page is not listing all errors on processing data function. All errors are:
+
+* InvalidObjectException (when server data is misinterpreted or an unrecognized server object is met)
+* InvalidScalarException (when server data is misinterpreted)
+* EOFDataProcessingException (when the given data is shorter than expected in reference to the given serve objects)
+* InvalidArgumentException (when there is an internal argument error - you should not observe this)
+* InvalidVariableTypeException (when an unrecognized base data type is met)
+* InvalidObjectScalarFieldException (when an unrecognized object-scalar pair is met)
+
+I'm going to try to release new packages when I need since I'm putting-out too many...thanks anyway.
+
 **2018-11-05 -** ~~Version 0.2.0.1 is out. We've included variables on your queries. We don't have support for not-null variables, but we'll look into it in the future. This change is an api-breaking change since we're including type-matching between variables and subfields. As a consequence, your schema is changed to include types. You can look at example on the [hackage page](http://hackage.haskell.org/package/graphql-w-persistent) as guidance. With the next version, we will include casting, so you're results are not only text values.~~
 
 Another note is of our example case were we used show on form response values. We couldn't interpret double quotes, but this is now changed to unpack. You now can use the double quotes in you queries.
