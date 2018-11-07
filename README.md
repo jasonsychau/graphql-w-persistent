@@ -66,7 +66,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 2. install package (there maybe is a later version)
 
     ```
-    stack install graphql-w-persist-0.2.0.1
+    stack install graphql-w-persist-0.3.0.0
     ```
 
 #### run
