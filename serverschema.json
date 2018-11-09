@@ -21,7 +21,11 @@
       }
     ],
     "objectfields": [
-      "pet"
+      "pet",
+      "breed",
+      "species",
+      "genus",
+      "family"
     ],
     "databasetables": [
       "person"
@@ -54,16 +58,18 @@
       "genus",
       "species",
       "breed",
-      "pet"
+      "pet",
+      "person"
     ],
     "databasetables": [
       "family"
     ],
     "databaserelationships": [
+      ["family","id","person","id","genus","family_id","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
       ["family","id","pet","id","genus","family_id","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id"],
-    ["family","id","genus","family_id"],
-    ["family","id","species","genus_id","genus","family_id","id"],
-    ["family","id","breed","species_id","genus","family_id","id","species","genus_id","id"]
+      ["family","id","genus","family_id"],
+      ["family","id","species","genus_id","genus","family_id","id"],
+      ["family","id","breed","species_id","genus","family_id","id","species","genus_id","id"]
     ]
   },
   {
@@ -86,12 +92,14 @@
       "family",
       "species",
       "breed",
-      "pet"
+      "pet",
+      "person"
     ],
     "databasetables": [
       "genus"
     ],
     "databaserelationships": [
+      ["genus","id","person","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
       ["genus","id","pet","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id"],
       ["genus","family_id","family","id"],
       ["genus","id","species","genus_id"],
@@ -118,12 +126,14 @@
       "family",
       "genus",
       "breed",
-      "pet"
+      "pet",
+      "person"
     ],
     "databasetables": [
       "species"
     ],
     "databaserelationships": [
+      ["species","id","person","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
       ["species","id","pet","id","breed","species_id","id","pet_type","breed_id","pet_id"],
       ["species","id","breed","species_id"],
       ["species","genus_id","genus","id"],
@@ -150,12 +160,14 @@
       "family",
       "genus",
       "species",
-      "pet"
+      "pet",
+      "person"
     ],
     "databasetables": [
       "breed"
     ],
     "databaserelationships": [
+      ["breed","id","person","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
       ["breed","id","pet","id","pet_type","breed_id","pet_id"],
       ["breed","species_id","species","id"],
       ["breed","species_id","genus","id","species","id","genus_id"],
@@ -217,7 +229,8 @@
       }
     ],
     "objectfields": [
-      "pet"
+      "pet",
+      "person"
     ],
     "databasetables": [
       "family",

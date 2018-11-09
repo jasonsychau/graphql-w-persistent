@@ -430,8 +430,8 @@ runQuery qry = do
 -- COMMENT: MORE INFORMATION IS FOUND ON OUR HACKAGE PACKAGE PAGE <https://hackage.haskell.org/package/graphql-w-persistent>.
 svrobjs :: [(String,[String])]
 svrobjs = [("Person",["Person","person","owner"]),("Family",["Family","family"]),("Genus",["Genus","genus"]),("Species",["Species","species"]),("Breed",["Breed","breed"]),("Pet",["Pet","pet"]),("Taxonomy",["Taxonomy","taxonomy"])]
-sss :: [(String,[String])]
-sss = [("Person",["name","gender"]),("Family",["name"]),("Genus",["name"]),("Species",["name"]),("Breed",["name"]),("Pet",["name","gender"]),("Taxonomy",["name"])]
+sss :: [(String,[(String,String)])]
+sss = [("Person",[("id","Int"),("name","Text"),("gender","Int")]),("Family",[("id","Int"),("name","Text")]),("Genus",[("id","Int"),("name","Text")]),("Species",[("id","Int"),("name","Text")]),("Breed",[("id","Int"),("name","Text")]),("Pet",[("id","Int"),("name","Text"),("gender","Text")]),("Taxonomy",[("id","Int"),("name","Text")])]
 sos :: [(String,[String])]
 sos = [("Person",["pet"]),("Family",["genus","species","breed","pet"]),("Genus",["family","species","breed","pet"]),("Species",["family","genus","breed","pet"]),("Breed",["family","genus","species","pet"]),("Pet",["owner","breed","species","genus","family"]),("Taxonomy",["pet"])]
 sodn :: [(String,[String])]
