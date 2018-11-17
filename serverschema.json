@@ -199,7 +199,8 @@
       "breed",
       "species",
       "genus",
-      "family"
+      "family",
+      "taxonomy"
     ],
     "databasetables": [
       "pet"
@@ -208,8 +209,8 @@
       ["pet","id","person","id","pet_ownership","animal_id","owner_id"],
       ["pet","id","breed","id","pet_type","pet_id","breed_id"],
       ["pet","id","species","id","pet_type","pet_id","breed_id","breed","id","species_id"],
-      ["pet","id","genus","id","pet_type","pet_id","breed_id","breed","id","genus_id"],
-      ["pet","id","family","id","pet_type","pet_id","breed_id","breed","id","genus_id","genus","id","family_id"]
+      ["pet","id","genus","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id"],
+      ["pet","id","family","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id","genus","id","family_id"]
     ]
   },
   {

@@ -4,6 +4,10 @@
 
 ### News Posts
 
+**2018-11-17 -** Version 0.3.1.1 is fixing data processing. Where data was before not aggregated when making relation from object to a nested object that is of generalized database entity, it is now correctly aggregated. You should be able to now freely make relations between any actually related entities of your database. All previous package versions are now deprecated.
+
+Exceptions are now made available to help you in catching errors.
+
 **2018-11-06 -** Version 0.3.0.0 is here to save the day. Version 0.2.whatever is bugged. We could not make nested objects in queries. Newer version is fixing this bug. API is broken (in a good way for this time) by the processing data functions where you now pass your scalar field schemas. Another API change is the scalar field schema arguments are given with the types. This is explained in the last news post. Another API change is the returned values are cast if they are Int, Rational (as Decimal), or Double. This is shown in the json return string.
 
 Older news posts are moved to another file to not clutter this page.
@@ -39,7 +43,7 @@ All these are in the version 0.1.0.5.
 
 ### Stable Releases
 
-0.1.0.7 & 0.3.0.0
+0.3.1.1
 
 ### Features
 
@@ -77,7 +81,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 2. install package (there maybe is a later version)
 
     ```
-    stack install graphql-w-persist-0.3.0.0
+    stack install graphql-w-persist-0.3.1.1
     ```
 
 #### run
@@ -88,4 +92,4 @@ stack runghc demonstration.hs
 
 At localhost:3000, the topmost text box is the GraphQL question box while below is the variables textbox. Underneath is an area to add or delete database data.
 
-A fun query is {taxonomy{name,pet{name}}} ...enjoy!
+A fun query is {pet{name,taxonomy{name}}} ...enjoy!
