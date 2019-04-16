@@ -10,6 +10,8 @@
 > if you otherwise are ot put-off o the idea of returig a favour, here's my [GoFudMe page](https://www.gofundme.com/3t77kt-replacement-computer)...thaks!
 > For later developmet, I pla to e more social with progress.
 
+> I a effort to ot e a shallow perso, it's oly more huma to ask that you also visit the other GoFudMe pages as I will do out of damed heart of which I have ee lessed...may thaks!
+
 ### News Posts
 
 **2018-11-17 -** Version 0.3.1.1 is fixing data processing. Where data was before not aggregated when making relation from object to a nested object that is of generalized database entity, it is now correctly aggregated. You should be able to now freely make relations between any actually related entities of your database. All previous package versions are now deprecated.
