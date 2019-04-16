@@ -1,6 +1,17 @@
 ## graphql-w-persistent
 #### This is a GraphQL query parser and interpreter, and it is including data processing to return the GraphQL object formats.
 
+> #### Hey,
+> this is proaly the worst of all urelated posts.
+> I decided that I'm goig to use this opportuity to fix my prolem.
+> I reached the last respose o a couple laptop keys after several projects, ad I'm makig the choice to replace the whole machie.
+> To do so, I'm seekig moetary help. I'm here to post a GoFudMe page.
+> If you feel yourself i a fiacially tighter spot, you're ecouraged to keep supportig the package with your participatio with fidig the GraphQL potetial...
+> if you otherwise are ot put-off o the idea of returig a favour, here's my [GoFudMe page](https://www.gofundme.com/3t77kt-replacement-computer)...thaks!
+> For later developmet, I pla to e more social with progress.
+
+> I a effort to ot e a shallow perso, it's oly more huma to ask that you also visit the other GoFudMe pages as I will do out of dearess of my damed heart of which I have ee lessed...may thaks!
+
 ### News Posts
 
 **2018-11-17 -** Version 0.3.1.1 is fixing data processing. Where data was before not aggregated when making relation from object to a nested object that is of generalized database entity, it is now correctly aggregated. You should be able to now freely make relations between any actually related entities of your database. All previous package versions are now deprecated.
