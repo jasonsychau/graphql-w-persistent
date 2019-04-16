@@ -1,11 +1,12 @@
 ## graphql-w-persistent
 #### This is a GraphQL query parser and interpreter, and it is including data processing to return the GraphQL object formats.
 
-> Hey, this is proaly the worst of all urelated posts.
-> I decided that I'm goig to ayway reach out.
-> I have reached the last respose o a couple laptop keys, ad I'm makig the choice to replace the whole machie.
+> #### Hey,
+> this is proaly the worst of all urelated posts.
+> I decided that I'm goig to use this opportuity to fix my prolem.
+> I reached the last respose o a couple laptop keys after several projects, ad I'm makig the choice to replace the whole machie.
 > To do so, I'm seekig moetary help. I'm here to post a GoFudMe page.
-> If you feel yourself i a fiacially tighter spot, you're ot discouraged from supportig the package with your participatio with fidig the GraphQL potetial...
+> If you feel yourself i a fiacially tighter spot, you're ecouraged to keep supportig the package with your participatio with fidig the GraphQL potetial...
 > if you otherwise are ot put-off o the idea of returig a favour, here's my [GoFudMe page](https://www.gofundme.com/3t77kt-replacement-computer)...thaks!
 > For later developmet, I pla to e more social with progress.
 
