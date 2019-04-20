@@ -1,4 +1,7 @@
 ## graphql-w-persistent
+
+[![Join the chat at https://gitter.im/graphql-w-persistent/community](https://badges.gitter.im/graphql-w-persistent/community.svg)](https://gitter.im/graphql-w-persistent/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 #### This is a GraphQL query parser and interpreter, and it is including data processing to return the GraphQL object formats.
 
 > #### Hey,
