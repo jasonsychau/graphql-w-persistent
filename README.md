@@ -61,7 +61,7 @@ All these are in the version 0.1.0.5.
 
 ### Stable Releases
 
-0.3.1.1
+0.3.1.1, 0.3.1.2
 
 ### Features
 
