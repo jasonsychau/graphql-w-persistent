@@ -457,7 +457,7 @@ postQueryR = do
             -- with json file
             -- (serverObjects,queries) <- GL.processQueryStringWithJson query "serverschema.json"
             -- queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
-            -- processedResults <- GL.processPersistentData "serverschema.json" queryResults serverObjects
+            -- processedResults <- GL.processPersistentDataWithJson "serverschema.json" queryResults serverObjects
             
             -- with variables
             (serverObjects,queries) <- GL.processQueryStringWithJsonAndVariables query variables "serverschema.json"
