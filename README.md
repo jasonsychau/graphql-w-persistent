@@ -20,6 +20,8 @@
 
 ### News Posts
 
+**2019-04-23 -** With version 0.3.1.3, one can now add relationships of multiple fields to their schema. He or she separates these fields with a space where the equality fields are specified. It is presumed that all tables are with a primary key "id" to help with processing the data. If that's an obstacle, I'd like to have a notice in our Gitter conversation above...thanks!
+
 **2019-04-22 -** Version 0.3.1.2 is fixing filters on nested objects.
 
 **2018-11-17 -** Version 0.3.1.1 is fixing data processing. Where data was before not aggregated when making relation from object to a nested object that is of generalized database entity, it is now correctly aggregated. You should be able to now freely make relations between any actually related entities of your database. All previous package versions are now deprecated.
@@ -69,8 +71,8 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 
 | Feature  | Present | Comments |
 |----------|:-------:|----------|
-| argument to root objects | :heavy_check_mark: | 0.1.0.4 |
-| data transformation arguments on scalar fields | *filters are supported* | :thought_balloon: |
+| argument to root (and nested) objects | :heavy_check_mark: | 0.1.0.4 (0.3.1.2) |
+| data transformation arguments on scalar fields | | :thought_balloon: |
 | aliases | :heavy_check_mark: | 0.1.0.1 |
 | named fragments | :heavy_check_mark: | 0.1.0.1 |
 | operation names | | :thought_balloon: |
@@ -99,7 +101,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 2. install package (there maybe is a later version)
 
     ```
-    stack install graphql-w-persist-0.3.1.2
+    stack install graphql-w-persist-0.3.1.3
     ```
 
 #### run
