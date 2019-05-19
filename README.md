@@ -1,26 +1,17 @@
 [![Hackage](https://img.shields.io/hackage/v/graphql-w-persistent.svg)](https://hackage.haskell.org/package/graphql-w-persistent)
 [![Hackage CI](http://matrix.hackage.haskell.org/api/v2/packages/graphql-w-persistent/badge)](https://matrix.hackage.haskell.org/package/graphql-w-persistent)
-<!-- [![Hackage-Deps](https://img.shields.io/hackage-deps/v/graphql-w-persistent.svg)](http://packdeps.haskellers.com/feed?needle=graphql-w-persistent) -->
+[![Hackage-Deps](https://img.shields.io/hackage-deps/v/graphql-w-persistent.svg)](http://packdeps.haskellers.com/feed?needle=graphql-w-persistent)
 [![Gitter](https://badges.gitter.im/graphql-w-persistent/community.svg)](https://gitter.im/graphql-w-persistent/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 
 ## graphql-w-persistent
 #### This is a GraphQL query parser and interpreter, and it is including data processing to return the GraphQL object formats.
 
-> #### Hey,
-> this is proaly the worst of all urelated posts.
-> I decided that I'm goig to use this opportuity to fix my prolem.
-> I reached the last respose o a couple laptop keys after several projects, ad I'm makig the choice to replace the whole machie.
-> To do so, I'm seekig moetary help. I'm here to post a GoFudMe page.
-> If you feel yourself i a fiacially tighter spot, you're ecouraged to keep supportig the package with your participatio with fidig the GraphQL potetial...
-> if you otherwise are ot put-off o the idea of returig a favour, here's my [GoFudMe page](https://www.gofundme.com/3t77kt-replacement-computer)...thaks!
-> For later developmet, I pla to e more social with progress.
-
-> I a effort to ot e a shallow perso, it's oly more huma to ask that you also visit the other GoFudMe pages as I will do out of dearess of my damed heart of which I have ee lessed...may thaks!
-
 ### News Posts
 
-**2019-04-23 -** With version 0.3.1.3, one can now add relationships of multiple fields to their schema. He or she separates these fields with a space where the equality fields are specified. It is presumed that all tables are with a primary key "id" to help with processing the data. If that's an obstacle, I'd like to have a notice in our Gitter conversation above...thanks!
+**2019-05-18 -** Version 0.3.2.1 is fixing a bug with variables (multiple variables), a bug with fragments (variables within fragments), and lastly a bug with database queries (nested objects are correctly translated). Another addition is adding directives. Skip and include directives are supported. Directives are applied to fields and fragments as recorded in documents. Examples are at the bottom.
+
+**2019-04-23 -** With version 0.3.1.3, one can now add relationships of multiple fields to his/her schema. He/she separates these fields with a space where the equality fields are specified. It is presumed that all tables are with a primary key "id" to help with processing the data. If that's an obstacle, I'd like to have a notice in our Gitter conversation above...thanks!
 
 **2019-04-22 -** Version 0.3.1.2 is fixing filters on nested objects.
 
@@ -63,7 +54,7 @@ All these are in the version 0.1.0.5.
 
 ### Stable Releases
 
-0.3.1.1, 0.3.1.2
+0.3.1.1, 0.3.1.2, 0.3.2.1
 
 ### Features
 
@@ -76,8 +67,8 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | aliases | :heavy_check_mark: | 0.1.0.1 |
 | named fragments | :heavy_check_mark: | 0.1.0.1 |
 | operation names | | :thought_balloon: |
-| variables (default value ~~and required/not~~) | :heavy_check_mark: | 0.2.0.0 |
-| directives | | |
+| variables (default value ~~and required/not~~) | :heavy_check_mark: | 0.2.0.0 (multiple variables is not supported until 0.3.2.1) |
+| directives | :heavy_check_mark: | 0.3.2.1 |
 | mutations  | | :thought_balloon: |
 | inline fragments | | :thought_balloon: |
 | meta fields | | |
@@ -101,7 +92,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 2. install package (there maybe is a later version)
 
     ```
-    stack install graphql-w-persist-0.3.1.3
+    stack install graphql-w-persist-0.3.2.1
     ```
 
 #### run
@@ -112,4 +103,20 @@ stack runghc demonstration.hs
 
 At localhost:3000, the topmost text box is the GraphQL question box while below is the variables textbox. Underneath is an area to add or delete database data.
 
-A fun query is {pet{name,taxonomy{name}}} ...enjoy!
+Here are example queries:
+
+```
+query Example1($withOwner: Bool) { AllPets: pet { name gender owner @include(if: $withOwner) { name gender } } AllPeople: person { name } }
+```
+with variable
+```
+{ "withOwner": false }
+```
+
+```
+query Example2($asTaxonomy: Bool = false, $withGender: Bool = true) { AllPets: pet { name gender @include(if: $withGender) taxonomy @include(if: $asTaxonomy) { name } family @skip(if: $asTaxonomy) { name } genus @skip(if: $asTaxonomy) { name } species @skip(if: $asTaxonomy) { name } breed @skip(if: $asTaxonomy) { name } } }
+```
+
+```
+query Example3 ($withOwner: Bool = false) { MalePets: pet (gender: 1) { ...petFields } FemalePets: pet (gender: 0) { ...petFields } } fragment petFields on Pet { name owner @include(if: $withOwner) { name } }
+```
