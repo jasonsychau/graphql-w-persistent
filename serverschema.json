@@ -1,244 +1,221 @@
-[
-  {
-    "servername": "Person",
-    "pseudonyms": [
-      "person",
-      "Person",
-      "owner"
-    ],
-    "scalarfields": [
-      {
-        "name": "id",
-        "type": "Int"
-      },
-      {
-        "name": "name",
-        "type": "Text"
-      },
-      {
-        "name": "gender",
-        "type": "Int"
-      }
-    ],
-    "objectfields": [
-      "pet",
-      "breed",
-      "species",
-      "genus",
-      "family"
-    ],
-    "databasetables": [
-      "person"
-    ],
-    "databaserelationships": [
-      ["person","id","pet","id","pet_ownership","owner_id","animal_id"],
-      ["person","id","breed","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id"],
-      ["person","id","species","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id"],
-      ["person","id","genus","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id"],
-      ["person","id","family","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id","genus","id","family_id"]
-    ]
-  },
-  {
-    "servername": "Family",
-    "pseudonyms": [
-      "Family",
-      "family"
-    ],
-    "scalarfields": [
-      {
-        "name": "id",
-        "type": "Int"
-      },
-      {
-        "name": "name",
-        "type": "Text"
-      }
-    ],
-    "objectfields": [
-      "genus",
-      "species",
-      "breed",
-      "pet",
-      "person"
-    ],
-    "databasetables": [
-      "family"
-    ],
-    "databaserelationships": [
-      ["family","id","person","id","genus","family_id","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
-      ["family","id","pet","id","genus","family_id","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id"],
-      ["family","id","genus","family_id"],
-      ["family","id","species","genus_id","genus","family_id","id"],
-      ["family","id","breed","species_id","genus","family_id","id","species","genus_id","id"]
-    ]
-  },
-  {
-    "servername": "Genus",
-    "pseudonyms": [
-      "Genus",
-      "genus"
-    ],
-    "scalarfields": [
-      {
-        "name": "id",
-        "type": "Int"
-      },
-      {
-        "name": "name",
-        "type": "Text"
-      }
-    ],
-    "objectfields": [
-      "family",
-      "species",
-      "breed",
-      "pet",
-      "person"
-    ],
-    "databasetables": [
-      "genus"
-    ],
-    "databaserelationships": [
-      ["genus","id","person","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
-      ["genus","id","pet","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id"],
-      ["genus","family_id","family","id"],
-      ["genus","id","species","genus_id"],
-      ["genus","id","breed","species_id","species","genus_id","id"]
-    ]
-  },
-  {
-    "servername": "Species",
-    "pseudonyms": [
-      "Species",
-      "species"
-    ],
-    "scalarfields": [
-      {
-        "name": "id",
-        "type": "Int"
-      },
-      {
-        "name": "name",
-        "type": "Text"
-      }
-    ],
-    "objectfields": [
-      "family",
-      "genus",
-      "breed",
-      "pet",
-      "person"
-    ],
-    "databasetables": [
-      "species"
-    ],
-    "databaserelationships": [
-      ["species","id","person","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
-      ["species","id","pet","id","breed","species_id","id","pet_type","breed_id","pet_id"],
-      ["species","id","breed","species_id"],
-      ["species","genus_id","genus","id"],
-      ["species","id","family","genus_id","genus","species_id","id"]
-    ]
-  },
-  {
-    "servername": "Breed",
-    "pseudonyms": [
-      "Breed",
-      "breed"
-    ],
-    "scalarfields": [
-      {
-        "name": "id",
-        "type": "Int"
-      },
-      {
-        "name": "name",
-        "type": "Text"
-      }
-    ],
-    "objectfields": [
-      "family",
-      "genus",
-      "species",
-      "pet",
-      "person"
-    ],
-    "databasetables": [
-      "breed"
-    ],
-    "databaserelationships": [
-      ["breed","id","person","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
-      ["breed","id","pet","id","pet_type","breed_id","pet_id"],
-      ["breed","species_id","species","id"],
-      ["breed","species_id","genus","id","species","id","genus_id"],
-      ["breed","species_id","family","id","species","id","genus_id","genus","id","family_id"]
-    ]
-  },
-  {
-    "servername": "Pet",
-    "pseudonyms": [
-      "pet",
-      "Pet"
-    ],
-    "scalarfields": [
-      {
-        "name": "id",
-        "type": "Int"
-      },
-      {
-        "name": "name",
-        "type": "Text"
-      },
-      {
-        "name": "gender",
-        "type": "Int"
-      }
-    ],
-    "objectfields": [
-      "owner",
-      "breed",
-      "species",
-      "genus",
-      "family",
-      "taxonomy"
-    ],
-    "databasetables": [
-      "pet"
-    ],
-    "databaserelationships": [
-      ["pet","id","person","id","pet_ownership","animal_id","owner_id"],
-      ["pet","id","breed","id","pet_type","pet_id","breed_id"],
-      ["pet","id","species","id","pet_type","pet_id","breed_id","breed","id","species_id"],
-      ["pet","id","genus","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id"],
-      ["pet","id","family","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id","genus","id","family_id"]
-    ]
-  },
-  {
-    "servername": "Taxonomy",
-    "pseudonyms": [
-      "taxonomy",
-      "Taxonomy"
-    ],
-    "scalarfields": [
-      {
-        "name": "id",
-        "type": "Int"
-      },
-      {
-        "name": "name",
-        "type": "Text"
-      }
-    ],
-    "objectfields": [
-      "pet",
-      "person"
-    ],
-    "databasetables": [
-      "family",
-      "genus",
-      "species",
-      "breed"
-    ],
-    "databaserelationships": []
-  }
-]
+{
+  "ParentalObjects":[
+    {
+      "ServerName":"Taxonomy",
+      "Pseudonyms":[
+        "taxonomy",
+        "Taxonomy"
+      ],
+      "ServerChildren":[
+        "Breed",
+        "Species",
+        "Family",
+        "Genus"
+      ]
+    }
+  ],
+  "PrimitiveObjects":[
+    {
+      "ServerName": "Person",
+      "Pseudonyms": [
+        "person",
+        "Person",
+        "owner"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int"
+        },
+        {
+          "Name": "name",
+          "Type": "Text"
+        },
+        {
+          "Name": "gender",
+          "Type": "Int"
+        }
+      ],
+      "ObjectFields": [
+        "pet",
+        "breed",
+        "species",
+        "genus",
+        "family"
+      ],
+      "DatabaseTable": "person",
+      "DatabaseRelationships": [
+        ["person","id","pet","id","pet_ownership","owner_id","animal_id"],
+        ["person","id","breed","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id"],
+        ["person","id","species","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id"],
+        ["person","id","genus","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id"],
+        ["person","id","family","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id","genus","id","family_id"]
+      ]
+    },
+    {
+      "ServerName": "Family",
+      "Pseudonyms": [
+        "Family",
+        "family"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int"
+        },
+        {
+          "Name": "name",
+          "Type": "Text"
+        }
+      ],
+      "ObjectFields": [
+        "genus",
+        "species",
+        "breed",
+        "pet",
+        "person"
+      ],
+      "DatabaseTable": "family",
+      "DatabaseRelationships": [
+        ["family","id","person","id","genus","family_id","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
+        ["family","id","pet","id","genus","family_id","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id"],
+        ["family","id","genus","family_id"],
+        ["family","id","species","genus_id","genus","family_id","id"],
+        ["family","id","breed","species_id","genus","family_id","id","species","genus_id","id"]
+      ]
+    },
+    {
+      "ServerName": "Genus",
+      "Pseudonyms": [
+        "Genus",
+        "genus"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int"
+        },
+        {
+          "Name": "name",
+          "Type": "Text"
+        }
+      ],
+      "ObjectFields": [
+        "family",
+        "species",
+        "breed",
+        "pet",
+        "person"
+      ],
+      "DatabaseTable": "genus",
+      "DatabaseRelationships": [
+        ["genus","id","person","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
+        ["genus","id","pet","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id"],
+        ["genus","family_id","family","id"],
+        ["genus","id","species","genus_id"],
+        ["genus","id","breed","species_id","species","genus_id","id"]
+      ]
+    },
+    {
+      "ServerName": "Species",
+      "Pseudonyms": [
+        "Species",
+        "species"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int"
+        },
+        {
+          "Name": "name",
+          "Type": "Text"
+        }
+      ],
+      "ObjectFields": [
+        "family",
+        "genus",
+        "breed",
+        "pet",
+        "person"
+      ],
+      "DatabaseTable": "species",
+      "DatabaseRelationships": [
+        ["species","id","person","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
+        ["species","id","pet","id","breed","species_id","id","pet_type","breed_id","pet_id"],
+        ["species","id","breed","species_id"],
+        ["species","genus_id","genus","id"],
+        ["species","id","family","genus_id","genus","species_id","id"]
+      ]
+    },
+    {
+      "ServerName": "Breed",
+      "Pseudonyms": [
+        "Breed",
+        "breed"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int"
+        },
+        {
+          "Name": "name",
+          "Type": "Text"
+        }
+      ],
+      "ObjectFields": [
+        "family",
+        "genus",
+        "species",
+        "pet",
+        "person"
+      ],
+      "DatabaseTable": "breed",
+      "DatabaseRelationships": [
+        ["breed","id","person","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
+        ["breed","id","pet","id","pet_type","breed_id","pet_id"],
+        ["breed","species_id","species","id"],
+        ["breed","species_id","genus","id","species","id","genus_id"],
+        ["breed","species_id","family","id","species","id","genus_id","genus","id","family_id"]
+      ]
+    },
+    {
+      "ServerName": "Pet",
+      "Pseudonyms": [
+        "pet",
+        "Pet"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int"
+        },
+        {
+          "Name": "name",
+          "Type": "Text"
+        },
+        {
+          "Name": "gender",
+          "Type": "Int"
+        }
+      ],
+      "ObjectFields": [
+        "owner",
+        "breed",
+        "species",
+        "genus",
+        "family",
+        "taxonomy"
+      ],
+      "DatabaseTable": "pet",
+      "DatabaseRelationships": [
+        ["pet","id","person","id","pet_ownership","animal_id","owner_id"],
+        ["pet","id","breed","id","pet_type","pet_id","breed_id"],
+        ["pet","id","species","id","pet_type","pet_id","breed_id","breed","id","species_id"],
+        ["pet","id","genus","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id"],
+        ["pet","id","family","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id","genus","id","family_id"]
+      ]
+    }
+  ]
+}
