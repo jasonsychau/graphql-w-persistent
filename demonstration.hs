@@ -447,23 +447,13 @@ postQueryR = do
             let query = CP.unpack $ unTextarea txt1
             let variables = if (txt2==Nothing) then "" else CP.unpack $ fromJust txt2
 
-            -- -- parse the given query string to make desired query
-            -- let (rootObjs,sqlQueries) = GL.processQueryString query svrobjs sss sos sodn sor 
-            -- -- query
-            -- queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) sqlQueries
-            -- -- process data
-            -- let processedResults = GL.processPersistentData sss queryResults rootObjs
-
-            -- with json file
-            -- (serverObjects,queries) <- GL.processQueryStringWithJson query "serverschema.json"
-            -- queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
-            -- processedResults <- GL.processPersistentDataWithJson "serverschema.json" queryResults serverObjects
+            -- parse the given query string to make desired query
+            let (packageObjects,sqlQueries) = GL.processQueryString "serverschema.json" query variables 
+            -- query
+            queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) sqlQueries
+            -- process data
+            let processedResults = GL.processQueryData "serverschema.json" packageObjects queryResults
             
-            -- with variables
-            (serverObjects,queries) <- GL.processQueryStringWithJsonAndVariables query variables "serverschema.json"
-            queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
-            processedResults <- GL.processPersistentDataWithJson "serverschema.json" queryResults serverObjects
-
             defaultLayout
                 [whamlet|
                     <p>#{processedResults}
