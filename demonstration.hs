@@ -422,7 +422,7 @@ postPetOwnership2R = do
 runQuery :: String -> HandlerFor App [[Text]]
 runQuery qry = do
     results <- runDB $ CP.sourceToList $ rawQuery (pack qry) []
-    let iteratedResults = [[if (isRight $ (fromPersistValue y :: Either Text Text)) then (fromRight (pack "no parse") $ (fromPersistValue y :: Either Text Text)) else (fromLeft (pack "no parse") $ (fromPersistValue y :: Either Text Text)) | y<-x] | x<-results]
+    let iteratedResults = [[if (isRight $ (fromPersistValue y :: Either Text Text)) then (fromRight (pack "error") $ (fromPersistValue y :: Either Text Text)) else (fromLeft (pack "error") $ (fromPersistValue y :: Either Text Text)) | y<-x] | x<-results]
     return iteratedResults
 
 
