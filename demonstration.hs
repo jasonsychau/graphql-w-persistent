@@ -448,22 +448,12 @@ postQueryR = do
             let variables = if (txt2==Nothing) then "" else CP.unpack $ fromJust txt2
 
             -- -- parse the given query string to make desired query
-            -- let (rootObjs,sqlQueries) = GL.processQueryString query svrobjs sss sos sodn sor 
+            (packageObjects,queries) <- GL.processQueryString "serverschema.json" query variables
             -- -- query
-            -- queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) sqlQueries
-            -- -- process data
-            -- let processedResults = GL.processPersistentData sss queryResults rootObjs
-
-            -- with json file
-            -- (serverObjects,queries) <- GL.processQueryStringWithJson query "serverschema.json"
-            -- queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
-            -- processedResults <- GL.processPersistentDataWithJson "serverschema.json" queryResults serverObjects
-            
-            -- with variables
-            (serverObjects,queries) <- GL.processQueryStringWithJsonAndVariables query variables "serverschema.json"
             queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
-            processedResults <- GL.processPersistentDataWithJson "serverschema.json" queryResults serverObjects
-
+            -- -- process data
+            processedResults <- GL.processQueryData "serverschema.json" packageObjects queryResults
+            
             defaultLayout
                 [whamlet|
                     <p>#{processedResults}
