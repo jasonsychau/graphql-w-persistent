@@ -13,7 +13,7 @@
 
 ### News Posts
 
-**2019-06-18 -** Version 0.4.0.0 is suppporting inline fragments and comments.
+**2019-06-18 -** Version 0.4.0.0 is supporting inline fragments and comments.
 
 ##### Older news posts are found on [this page](https://github.com/jasonsychau/graphql-w-persistent/blob/master/oldnews.md).
 
