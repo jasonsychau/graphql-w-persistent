@@ -50,6 +50,8 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 
 ### Example
 
+There is several examples. Below is an example to open a web server with this package included. To read about applying the GraphQL database middleware to a pre-existing MySQL or Postgresql database with AWS Lambda and AWS API Gateway, you can read my [blog post](). Lastly, I'd like a star and claps if it's not too much to ask.
+
 #### set-up
 
 1. make sure that you have [Stack program and compilers](https://haskell-lang.org/get-started).
