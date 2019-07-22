@@ -2,7 +2,7 @@
 
 <p align="center"><img alt="library image" src="./image.png"/></p>
 
-#### this is a graphql query parser and interpreter, and it is including data processing to return the graphql object formats.
+#### This is a GraphQL database middleware for GraphQL interpretation and results.
 
 [![Hackage](https://img.shields.io/hackage/v/graphql-w-persistent.svg)](https://hackage.haskell.org/package/graphql-w-persistent)
 [![Hackage CI](http://matrix.hackage.haskell.org/api/v2/packages/graphql-w-persistent/badge)](https://matrix.hackage.haskell.org/package/graphql-w-persistent)
@@ -12,6 +12,8 @@
 
 
 ### News Posts
+
+**2019-07-21 -** [Here's] my Medium article to describe the combination of this package with AWS Lambda to have a language agnostic integration of a GraphQL database.
 
 **2019-06-18 -** Version 0.4.0.0 is supporting inline fragments and comments.
 
@@ -48,7 +50,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | business logic layer | | |
 | caching | | |
 
-### Example
+### Examples
 
 There is several examples. Below is an example to open a web server with this package included. You can read about applying the GraphQL database middleware to a pre-existing MySQL or Postgresql database with AWS Lambda and AWS API Gateway on my [Medium article](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c). Lastly, I'd like a star and claps if it's not too much to ask.
 
