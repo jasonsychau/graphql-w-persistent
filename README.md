@@ -13,7 +13,7 @@
 
 ### News Posts
 
-**2019-07-21 -** [Here's] my Medium article to describe the combination of this package with AWS Lambda to have a language agnostic integration of a GraphQL database.
+**2019-07-21 -** [Here's](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c) my Medium article to describe the combination of this package with AWS Lambda to have a language agnostic integration of a GraphQL database.
 
 **2019-06-18 -** Version 0.4.0.0 is supporting inline fragments and comments.
 
