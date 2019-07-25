@@ -8,28 +8,30 @@
     TemplateHaskell,
     TypeFamilies,
     ViewPatterns,
-    DeriveGeneric
+    DeriveGeneric,
+    UndecidableInstances
 #-}
+
+module Main where
+
 import Yesod
-import qualified Yesod.Form.Jquery as YJ
-import qualified ClassyPrelude.Yesod as CP
-import Database.Persist.Sqlite
-import qualified Database.Persist.Quasi as Q
+import Yesod.Form.Jquery (YesodJquery)
+import Database.Persist.Sqlite (runSqlPool,ConnectionPool,SqlBackend,runMigration,withSqlitePool,rawQuery,toSqlKey)
+import Database.Persist.Quasi (lowerCaseSettings)
 import Control.Monad.Trans.Resource (runResourceT)
 import Control.Monad.Logger (runStderrLoggingT)
-import qualified Data.Aeson as A
-import Data.Either
-import Data.Maybe
-import Data.Text (Text,pack)
-import qualified Control.Exception as E
-import qualified Text.JSON as J
+import Data.Aeson (genericToEncoding,defaultOptions)
+import Data.Either (fromLeft,fromRight,isRight)
+import Data.Maybe (fromJust,Maybe(Nothing))
+import Data.Text (Text,pack,unpack)
+import GHC.Generics (Generic)
+import Data.Conduit (sourceToList)
 
--- COMMENT: HERE'S OUR "EXTRA" PACKAGE
-import qualified GraphQL as GL
+import GraphQL (processQueryString,processQueryData)
 
 -- COMMENT: CONFIGURE DATABASE AND DATA MODELS
 share [mkPersist sqlSettings, mkMigrate "migrateAll"]
-    $(persistFileWith Q.lowerCaseSettings "models")
+    $(persistFileWith lowerCaseSettings "app/models")
 
 -- COMMENT: MAKE APP/SITE INSTANCE
 data App = App ConnectionPool
@@ -74,17 +76,17 @@ instance RenderMessage App FormMessage where
  
 -- And tell us where to find the jQuery libraries. We'll just use the defaults,
 -- which point to the Google CDN.
-instance YJ.YesodJquery App 
+instance YesodJquery App 
 
 -- The datatype we wish to receive from the form (as database Person Entity)
 -- COMMENT: DATA TYPE ATTRIBUTES ARE MAPPED TO FORM FIELDS
 data GivenQuery = GivenQuery {
       str  :: Textarea,
       vars :: Maybe Text
-    } deriving (CP.Generic, Show)
+    } deriving (Generic, Show)
 -- COMMENT: DECLARE MORE SETTINGS
 instance ToJSON GivenQuery where
-    toEncoding = A.genericToEncoding A.defaultOptions
+    toEncoding = genericToEncoding defaultOptions
 instance FromJSON GivenQuery
 -- COMMENT: Declare the form.
 -- COMMENT: MAKE FORMS AND FIELDS
@@ -145,10 +147,10 @@ getHomeR = do
     -- COMMENT: MAKE RAW QUERIES TO APPLY SQL JOIN
     let typeSql = "select pet_type.id as pettype_id, pet.name as pet_name, breed.name as breed_name from pet, pet_type, breed where pet.id = pet_type.pet_id and pet_type.breed_id = breed.id"
     -- COMMENT: FROM A HANDLER WRAPPER, DATA IS STREAMED TO A LISTS
-    queryPetTypes <- runDB $ CP.sourceToList $ rawQuery typeSql []
+    queryPetTypes <- runDB $ sourceToList $ rawQuery typeSql []
     let petTypes = [(if isRight $ (fromPersistValue tid :: Either Text PetTypeId) then fromRight (toSqlKey (-1) :: PetTypeId) $ (fromPersistValue tid :: Either Text PetTypeId) else (toSqlKey (-1) :: PetTypeId),if isRight $ (fromPersistValue ptn :: Either Text Text) then fromRight "no name" $ (fromPersistValue ptn :: Either Text Text) else "no name",if isRight $ (fromPersistValue bn :: Either Text Text) then fromRight "no name" $ (fromPersistValue bn :: Either Text Text) else "no name") | (tid:ptn:bn:t) <- queryPetTypes] :: [(PetTypeId, Text, Text)]
     let ownerSql = "select pet_ownership.id as ownership_id, person.name as person_name, pet.name as pet_name from person, pet_ownership, pet where person.id = pet_ownership.owner_id and pet_ownership.animal_id = pet.id"
-    queryPetOwnerships <- runDB $ CP.sourceToList $ rawQuery ownerSql []
+    queryPetOwnerships <- runDB $ sourceToList $ rawQuery ownerSql []
     let petOwnerships = [(if isRight $ (fromPersistValue oid :: Either Text PetOwnershipId) then fromRight (toSqlKey (-1) :: PetOwnershipId) $ (fromPersistValue oid :: Either Text PetOwnershipId) else (toSqlKey (-1) :: PetOwnershipId),if isRight $ (fromPersistValue prn :: Either Text Text) then fromRight "no name" $ (fromPersistValue prn :: Either Text Text) else "no name",if isRight $ (fromPersistValue ptn :: Either Text Text) then fromRight "no name" $ (fromPersistValue ptn :: Either Text Text) else "no name") | (oid:prn:ptn:t) <- queryPetOwnerships] :: [(PetOwnershipId, Text, Text)]
     let familyPairs = map (\(Entity i f) -> (familyName f, i :: FamilyId)) families
     let genusPairs = map (\(Entity i g) -> (genusName g, i :: GenusId)) genera
@@ -421,38 +423,26 @@ postPetOwnership2R = do
 -- COMMENT: DEFINE A FUNCTION TO ABSTRACT AWAY MONAD FUNCTION SEQUENCE TO BE USED MULTIPLE TIMES IN BELOW CODE BLOCK
 runQuery :: String -> HandlerFor App [[Text]]
 runQuery qry = do
-    results <- runDB $ CP.sourceToList $ rawQuery (pack qry) []
+    results <- runDB $ sourceToList $ rawQuery (pack qry) []
     let iteratedResults = [[if (isRight $ (fromPersistValue y :: Either Text Text)) then (fromRight (pack "error") $ (fromPersistValue y :: Either Text Text)) else (fromLeft (pack "error") $ (fromPersistValue y :: Either Text Text)) | y<-x] | x<-results]
     return iteratedResults
 
 
--- COMMENT: DEFINE OUR DATA SCHEMA
--- COMMENT: MORE INFORMATION IS FOUND ON OUR HACKAGE PACKAGE PAGE <https://hackage.haskell.org/package/graphql-w-persistent>.
-svrobjs :: [(String,[String])]
-svrobjs = [("Person",["Person","person","owner"]),("Family",["Family","family"]),("Genus",["Genus","genus"]),("Species",["Species","species"]),("Breed",["Breed","breed"]),("Pet",["Pet","pet"]),("Taxonomy",["Taxonomy","taxonomy"])]
-sss :: [(String,[(String,String)])]
-sss = [("Person",[("id","Int"),("name","Text"),("gender","Int")]),("Family",[("id","Int"),("name","Text")]),("Genus",[("id","Int"),("name","Text")]),("Species",[("id","Int"),("name","Text")]),("Breed",[("id","Int"),("name","Text")]),("Pet",[("id","Int"),("name","Text"),("gender","Text")]),("Taxonomy",[("id","Int"),("name","Text")])]
-sos :: [(String,[String])]
-sos = [("Person",["pet"]),("Family",["genus","species","breed","pet"]),("Genus",["family","species","breed","pet"]),("Species",["family","genus","breed","pet"]),("Breed",["family","genus","species","pet"]),("Pet",["owner","breed","species","genus","family"]),("Taxonomy",["pet"])]
-sodn :: [(String,[String])]
-sodn = [("Person",["person"]),("Family",["family"]),("Genus",["genus"]),("Species",["species"]),("Breed",["breed"]),("Pet",["pet"]),("Taxonomy",["family","genus","species","breed"])]
-sor :: [(String,String,[String])]
-sor = [("person","pet",["person","id","pet","id","pet_ownership","owner_id","animal_id"]),("person","breed",["person","id","breed","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id"]),("person","species",["person","id","species","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id"]),("person","genus",["person","id","genus","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id"]),("person","family",["person","id","family","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id","genus","id","family_id"]),("family","pet",["family","id","pet","id","genus","family_id","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id"]),("family","genus",["family","id","genus","family_id"]),("family","species",["family","id","species","genus_id","genus","family_id","id"]),("family","breed",["family","id","breed","species_id","genus","family_id","id","species","genus_id","id"]),("genus","pet",["genus","id","pet","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id"]),("genus","family",["genus","family_id","family","id"]),("genus","species",["genus","id","species","genus_id"]),("genus","breed",["genus","id","breed","species_id","species","genus_id","id"]),("species","pet",["species","id","pet","id","breed","species_id","id","pet_type","breed_id","pet_id"]),("species","breed",["species","id","breed","species_id"]),("species","genus",["species","genus_id","genus","id"]),("species","family",["species","id","family","genus_id","genus","species_id","id"]),("breed","pet",["breed","id","pet","id","pet_type","breed_id","pet_id"]),("breed","species",["breed","species_id","species","id"]),("breed","genus",["breed","species_id","genus","id","species","id","genus_id"]),("breed","family",["breed","species_id","family","id","species","id","genus_id","genus","id","family_id"]),("pet","person",["pet","id","person","id","pet_ownership","animal_id","owner_id"]),("pet","breed",["pet","id","breed","id","pet_type","pet_id","breed_id"]),("pet","species",["pet","id","species","id","pet_type","pet_id","breed_id","breed","id","species_id"]),("pet","genus",["pet","id","genus","id","pet_type","pet_id","breed_id","breed","id","genus_id"]),("pet","family",["pet","id","family","id","pet_type","pet_id","breed_id","breed","id","genus_id","genus","id","family_id"])]
 -- COMMENT: THIS IS OUR GRAPHQL FORM. QUERIES ARE INPUT HERE.
 postQueryR = do
     ((result, widget), enctype) <- runFormPost queryForm
     case result of
         -- COMMENT: IF FORM IS SUCCESSFUL INPUTS, DATA IS PROCESSED
         FormSuccess (GivenQuery txt1 txt2) -> do
-            let query = CP.unpack $ unTextarea txt1
-            let variables = if (txt2==Nothing) then "" else CP.unpack $ fromJust txt2
+            let query = unpack $ unTextarea txt1
+            let variables = if (txt2==Nothing) then "" else unpack $ fromJust txt2
 
             -- -- parse the given query string to make desired query
-            (packageObjects,queries) <- GL.processQueryString "serverschema.json" query variables
+            (packageObjects,queries) <- processQueryString "app/serverschema.json" query variables
             -- -- query
             queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
             -- -- process data
-            processedResults <- GL.processQueryData "serverschema.json" packageObjects queryResults
+            processedResults <- processQueryData "app/serverschema.json" packageObjects queryResults
             
             defaultLayout
                 [whamlet|
@@ -475,7 +465,7 @@ openConnectionCount :: Int
 openConnectionCount = 10
 
 main :: IO ()
-main = runStderrLoggingT $ withSqlitePool "test.db" openConnectionCount $ \pool -> liftIO $ do
+main = runStderrLoggingT $ withSqlitePool "app/test.db" openConnectionCount $ \pool -> liftIO $ do
     runResourceT $ flip runSqlPool pool $ do
         -- COMMENT: MIGRATIONS ARE AUTOMATICALLY SYNCING DATABASE TABLES, SO YOU DO NOT NEED TO MAKE A DATABASE BEFORE RUNNING THIS PROGRAM.
         runMigration migrateAll

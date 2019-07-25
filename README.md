@@ -52,27 +52,19 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 
 ### Examples
 
-There is several examples. Below is an example to open a web server with this package included. You can read about applying the GraphQL database middleware to a pre-existing MySQL or Postgresql database with AWS Lambda and AWS API Gateway on my [Medium article](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c). Lastly, I'd like a star and claps if it's not too much to ask.
+There is three examples. One is an to open a web server. This is in the `examples/server-example` folder. You can run it by downloading project folder and following the instructions in the `README.md` file. The other two examples are applying the GraphQL middleware to a pre-existing MySQL or Postgresql database with AWS Lambda and AWS API Gateway. Instructions are in the `README.md` file to make AWS Lambda functions, but you can read more on my [Medium article](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c). Lastly, I'd like a star and claps if it's not too much to ask.
 
 #### set-up
 
 1. make sure that you have [Stack program and compilers](https://haskell-lang.org/get-started).
 
-2. install package (there maybe is a later version)
+2. download one project folder from the `examples` folder
 
-    ```
-    stack install graphql-w-persist-0.4.0.0
-    ```
+3. follow instructions from there to run example project
 
-#### run
+#### examples
 
-```
-stack runghc demonstration.hs
-```
-
-At localhost:3000, the topmost text box is the GraphQL question box while below is the variables textbox. Underneath is an area to add or delete database data.
-
-Here are example queries:
+Here are example queries to run in the `server-example` schema:
 
 ```
 query Example1($withOwner: Bool) { AllPets: pet { name gender owner @include(if: $withOwner) { name gender } } AllPeople: person { name } }
