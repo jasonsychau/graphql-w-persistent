@@ -41,7 +41,7 @@ extra-deps:
 - persistent-sqlite-2.10.4
 - persistent-2.10.0
 - graphql-w-persistent-0.4.0.0
-- persistent-template-2.7.2
+- persistent-template-2.7.1
 # - yesod-persistent-1.6.0.2
 # - yesod-form-1.6.6
 
