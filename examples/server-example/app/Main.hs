@@ -8,14 +8,15 @@
     TemplateHaskell,
     TypeFamilies,
     ViewPatterns,
-    DeriveGeneric
+    DeriveGeneric,
+    UndecidableInstances
 #-}
 
 module Main where
 
 import Yesod
 import Yesod.Form.Jquery (YesodJquery)
-import Database.Persist.Sqlite
+import Database.Persist.Sqlite (runSqlPool,ConnectionPool,SqlBackend,runMigration,withSqlitePool,rawQuery,toSqlKey)
 import Database.Persist.Quasi (lowerCaseSettings)
 import Control.Monad.Trans.Resource (runResourceT)
 import Control.Monad.Logger (runStderrLoggingT)
@@ -26,12 +27,11 @@ import Data.Text (Text,pack,unpack)
 import GHC.Generics (Generic)
 import Data.Conduit (sourceToList)
 
--- COMMENT: HERE'S OUR "EXTRA" PACKAGE
-import qualified GraphQL as GL
+import GraphQL (processQueryString,processQueryData)
 
 -- COMMENT: CONFIGURE DATABASE AND DATA MODELS
 share [mkPersist sqlSettings, mkMigrate "migrateAll"]
-    $(persistFileWith lowerCaseSettings "models")
+    $(persistFileWith lowerCaseSettings "app/models")
 
 -- COMMENT: MAKE APP/SITE INSTANCE
 data App = App ConnectionPool
@@ -438,11 +438,11 @@ postQueryR = do
             let variables = if (txt2==Nothing) then "" else unpack $ fromJust txt2
 
             -- -- parse the given query string to make desired query
-            (packageObjects,queries) <- GL.processQueryString "serverschema.json" query variables
+            (packageObjects,queries) <- processQueryString "app/serverschema.json" query variables
             -- -- query
             queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
             -- -- process data
-            processedResults <- GL.processQueryData "serverschema.json" packageObjects queryResults
+            processedResults <- processQueryData "app/serverschema.json" packageObjects queryResults
             
             defaultLayout
                 [whamlet|
@@ -465,7 +465,7 @@ openConnectionCount :: Int
 openConnectionCount = 10
 
 main :: IO ()
-main = runStderrLoggingT $ withSqlitePool "test.db" openConnectionCount $ \pool -> liftIO $ do
+main = runStderrLoggingT $ withSqlitePool "app/test.db" openConnectionCount $ \pool -> liftIO $ do
     runResourceT $ flip runSqlPool pool $ do
         -- COMMENT: MIGRATIONS ARE AUTOMATICALLY SYNCING DATABASE TABLES, SO YOU DO NOT NEED TO MAKE A DATABASE BEFORE RUNNING THIS PROGRAM.
         runMigration migrateAll
