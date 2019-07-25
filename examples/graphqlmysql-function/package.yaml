@@ -1,0 +1,57 @@
+name:                graphqlmysql-function
+version:             0.1.0.0
+github:              "jasonsychau"
+license:             BSD3
+author:              "Jason"
+maintainer:          "jasonsychau@live.ca"
+copyright:           "ISC"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         There is a page for instructions. A link is maybe found from https://github.com/jasonsychau/graphql-w-persistent. I'd like a star and appraisals if you don't mind.
+
+dependencies:
+- base >= 4.7 && < 5
+- hal
+- aeson
+- graphql-w-persistent
+- persistent-mysql
+- persistent-template
+- text
+- conduit
+- transformers
+- monad-logger
+
+library:
+  source-dirs: src
+
+executables:
+  bootstrap:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - graphqlmysql-function
+
+tests:
+  graphqlmysql-function-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - graphqlmysql-function

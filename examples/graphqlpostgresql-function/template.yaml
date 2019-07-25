@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Stack for the Haskell Runtime.
+Resources:
+  GraphQLdb:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: NOT_USED
+      Runtime: provided
+      CodeUri: .stack-work/docker/_home/.local/bin
+      Description: My Haskell runtime.
+      MemorySize: 128
+      Timeout: 3
