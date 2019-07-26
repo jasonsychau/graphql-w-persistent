@@ -1,0 +1,59 @@
+name:                server-example
+version:             0.1.0.0
+github:              "jasonsychau"
+license:             BSD3
+author:              "Jason Chau"
+maintainer:          "jasonsychau@live.ca"
+copyright:           "2019 Jason Chau"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         This is an example project to show the usage of the graphql-w-persistent package.
+
+dependencies:
+- base >= 4.7 && < 5
+- yesod
+- yesod-form
+- resourcet
+- monad-logger
+- aeson
+- text
+- conduit
+- graphql-w-persistent
+- persistent-sqlite
+- persistent
+- persistent-template
+
+library:
+  source-dirs: src
+
+executables:
+  server-example-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - server-example
+
+tests:
+  server-example-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - server-example
