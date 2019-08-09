@@ -13,7 +13,7 @@
 
 ### News Posts
 
-**2019-08-09 -** If there's anybody who wouldn't mind writing a reference letter about me for my contributions, I'd greatly appreciate it. I'm also going to soon release another bug fix and additions...thanks!
+**2019-08-09 -** If there's anybody who wouldn't mind writing a reference letter about me for my contributions, I'd greatly appreciate it. You can email [me](mailto:jasonsychau@live.ca). I'm also going to soon release another bug fix and additions...thanks!
 
 **2019-07-21 -** [Here's](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c) my Medium article to describe the combination of this package with AWS Lambda to have a language agnostic integration of a GraphQL database.
 
