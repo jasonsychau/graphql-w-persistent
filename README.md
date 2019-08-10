@@ -13,7 +13,7 @@
 
 ### News Posts
 
-**2019-08-10 -** Version 5.0.0 is published where I've fixed a bug with subsequent nested objects. I'm sorry that this isn't on the earlier versions. I've added metafields feature and upgraded the SQL joins to maximize data retrieval...please don't forego giving me a star on GitHub, vote on Hackage, and/or claps on my Medium post - thanks!
+**2019-08-10 -** Version 5.0.0 is published where I've fixed two bugs with subsequent nested objects and with query syntax. I'm sorry that this isn't on the earlier versions. I've added metafields feature and upgraded the SQL joins to maximize data retrieval...please don't forego giving me a star on GitHub, vote on Hackage, and/or claps on my Medium post - thanks!
 
 **2019-08-09 -** If there's anybody who wouldn't mind writing a reference letter about me for my contributions, I'd greatly appreciate it. You can email [me](mailto:jasonsychau@live.ca). I'm also going to soon release another bug fix and additions...thanks!
 
