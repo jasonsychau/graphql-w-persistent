@@ -13,17 +13,17 @@
 
 ### News Posts
 
+**2019-08-10 -** Version 5.0.0 is published where I've fixed a bug with subsequent nested objects. I'm sorry that this isn't on the earlier versions. I've added metafields feature and upgraded the SQL joins to maximize data retrieval...please don't forego giving me a star on GitHub, vote on Hackage, and/or claps on my Medium post - thanks!
+
 **2019-08-09 -** If there's anybody who wouldn't mind writing a reference letter about me for my contributions, I'd greatly appreciate it. You can email [me](mailto:jasonsychau@live.ca). I'm also going to soon release another bug fix and additions...thanks!
 
 **2019-07-21 -** [Here's](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c) my Medium article to describe the combination of this package with AWS Lambda to have a language agnostic integration of a GraphQL database.
-
-**2019-06-18 -** Version 0.4.0.0 is supporting inline fragments and comments.
 
 ##### Older news posts are found on [this page](https://github.com/jasonsychau/graphql-w-persistent/blob/master/oldnews.md).
 
 ### Stable Releases
 
-0.3.1.1, 0.3.1.2, 0.3.2.1, 0.4.0.0
+0.5.0.0
 
 ### Features
 
@@ -40,7 +40,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | directives | :heavy_check_mark: | 0.3.2.1 |
 | mutations  | | :thought_balloon: |
 | inline fragments | :heavy_check_mark: | 0.4.0.0 |
-| meta fields | | |
+| meta fields | :heavy_check_mark: | 0.5.0.0 |
 | non-null implementation and non-null errors (on data types and arguments) | | |
 | interfaces to type heirarchy | :heavy_check_mark: | 0.1.0.4 |
 | input types | | |
@@ -66,7 +66,7 @@ There is three examples. One is an to open a web server. This is in the `example
 
 #### examples
 
-Here are example queries to run in the `server-example` schema:
+Here are example queries to run with the `server-example` schema:
 
 ```
 query Example1($withOwner: Bool) { AllPets: pet { name gender owner @include(if: $withOwner) { name gender } } AllPeople: person { name } }

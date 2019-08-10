@@ -39,7 +39,7 @@ runQuery qry vars =  do
             "gqldb_schema.json" packageObjects $ map (map $ map $ map
                 (\y -> case (fromPersistValue y :: Either Text Text) of
                     (Right res) -> res
-                    _ -> "error")) queryResults
+                    (Left res)  -> res)) queryResults
         return processedResults
         where
             runQuery x = sourceToList $ rawQuery (pack x) []

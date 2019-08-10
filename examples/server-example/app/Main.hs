@@ -27,7 +27,7 @@ import Data.Text (Text,pack,unpack)
 import GHC.Generics (Generic)
 import Data.Conduit (sourceToList)
 
-import GraphQL (processQueryString,processQueryData)
+import GraphQLdbi (processQueryString,processQueryData)
 
 -- COMMENT: CONFIGURE DATABASE AND DATA MODELS
 share [mkPersist sqlSettings, mkMigrate "migrateAll"]
@@ -424,9 +424,10 @@ postPetOwnership2R = do
 runQuery :: String -> HandlerFor App [[Text]]
 runQuery qry = do
     results <- runDB $ sourceToList $ rawQuery (pack qry) []
-    let iteratedResults = [[if (isRight $ (fromPersistValue y :: Either Text Text)) then (fromRight (pack "error") $ (fromPersistValue y :: Either Text Text)) else (fromLeft (pack "error") $ (fromPersistValue y :: Either Text Text)) | y<-x] | x<-results]
+    let iteratedResults = map (map (\x->case fromPersistValueText x of
+                                (Left res)  -> res
+                                (Right res) -> res)) results
     return iteratedResults
-
 
 -- COMMENT: THIS IS OUR GRAPHQL FORM. QUERIES ARE INPUT HERE.
 postQueryR = do

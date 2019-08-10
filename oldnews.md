@@ -1,5 +1,7 @@
 ## Old News
 
+**2019-06-18 -** Version 0.4.0.0 is supporting inline fragments and comments.
+
 **2019-05-18 -** Version 0.3.2.1 is fixing a bug with variables (multiple variables), a bug with fragments (variables within fragments), and lastly a bug with database queries (nested objects are correctly translated). Another addition is adding directives. Skip and include directives are supported. Directives are applied to fields and fragments as recorded in documents. Examples are at the bottom.
 
 **2019-04-23 -** With version 0.3.1.3, one can now add relationships of multiple fields to his/her schema. He/she separates these fields with a space where the equality fields are specified. It is presumed that all tables are with a primary key "id" to help with processing the data. If that's an obstacle, I'd like to have a notice in our Gitter conversation above...thanks!
