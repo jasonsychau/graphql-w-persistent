@@ -42,7 +42,7 @@ extra-deps:
 - persistent-2.10.0
 - persistent-postgresql-2.10.0
 - persistent-template-2.7.1
-- graphql-w-persistent-0.5.0.0
+- graphql-w-persistent-0.6.0.0
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

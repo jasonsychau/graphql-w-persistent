@@ -16,7 +16,7 @@ import Data.Conduit (sourceToList)
 import Data.Text (Text,pack)
 import Database.Persist.MySQL (runSqlConn,rawQuery,withMySQLConn,defaultConnectInfo,SqlBackend,ConnectInfo,connectHost,connectPort,connectUser,connectPassword,connectDatabase,fromPersistValue,runMigrationSilent)
 import Database.Persist.TH (mkPersist,mkMigrate,sqlSettings,share)
-import GraphQL (processQueryString,processQueryData)
+import GraphQLdbi (processSchema,processQueryString,processQueryData)
 
 share [mkPersist sqlSettings, mkMigrate "migrateAll"] []
 
@@ -31,14 +31,16 @@ runQuery qry vars =  do
     }
     runMySql connectionInfo $ do
         runMigrationSilent migrateAll
+        -- get schema data
+        schema <- processSchema "gqldb_schema.json"
         -- parse the given query string to make desired query
-        (packageObjects,queries) <- processQueryString
-            "gqldb_schema.json" qry vars
+        let (packageObjects,queries) = processQueryString
+            schema qry vars
         -- query
         queryResults <- mapM (mapM runQuery) queries
         -- process data
-        processedResults <- processQueryData
-            "gqldb_schema.json" packageObjects $ map (map $ map $ map
+        let processedResults = processQueryData
+            schema packageObjects $ map (map $ map $ map
                 (\y -> case (fromPersistValue y :: Either Text Text) of
                     (Right res) -> res
                     (Left res)  -> res)) queryResults

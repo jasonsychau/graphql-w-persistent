@@ -13,6 +13,8 @@
 
 ### News Posts
 
+**2019-08-31 -** Release 6.0.0 is bugs of parent object arguments and of processing parental data. I also reduce the computations to the previous code. I also add arguments feature to scalar types - thanks.
+
 **2019-08-10 -** Version 5.0.0 is published where I've fixed two bugs with subsequent nested objects and with query syntax. I'm sorry that this isn't on the earlier versions. I've added metafields feature and upgraded the SQL joins to maximize data retrieval...please don't forego giving me a star on GitHub, vote on Hackage, and/or claps on my Medium post - thanks!
 
 **2019-08-09 -** If there's anybody who wouldn't mind writing a reference letter about me for my contributions, I'd greatly appreciate it. You can email [me](mailto:jasonsychau@live.ca). I'm also going to soon release another bug fix and additions...thanks!
@@ -21,9 +23,9 @@
 
 ##### Older news posts are found on [this page](https://github.com/jasonsychau/graphql-w-persistent/blob/master/oldnews.md).
 
-### Stable Releases
+### Latest Recommended Version
 
-0.5.0.0
+0.6.0.0
 
 ### Features
 
@@ -32,7 +34,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | Feature  | Present | Comments |
 |----------|:-------:|----------|
 | argument to root (and nested) objects | :heavy_check_mark: | 0.1.0.4 (0.3.1.2) |
-| data transformation arguments on scalar fields | | :thought_balloon: |
+| data transformation arguments on scalar fields | :heavy_check_mark: | 0.6.0.0 |
 | aliases | :heavy_check_mark: | 0.1.0.1 |
 | named fragments | :heavy_check_mark: | 0.1.0.1 (within variables is not supported until 0.3.2.1) |
 | operation names | | :thought_balloon: |
@@ -54,7 +56,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 
 ### Examples
 
-There is three examples. One is an to open a web server. This is in the `examples/server-example` folder. You can run it by downloading project folder and following the instructions in the `README.md` file. The other two examples are applying the GraphQL middleware to a pre-existing MySQL or Postgresql database with AWS Lambda and AWS API Gateway. Instructions are in the `README.md` file to make AWS Lambda functions, but you can read more on my [Medium article](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c). Lastly, I'd like a star and claps if it's not too much to ask.
+There is three examples. One is an to open a web server. This is in the `examples/server-example` folder. You can run it by downloading project folder and following the instructions in the `README.md` file. The other two examples are applying the GraphQL middleware to a pre-existing MySQL or Postgresql database with AWS Lambda and AWS API Gateway. Instructions are in the `README.md` file to make AWS Lambda functions, but you can read more on my [Medium article](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c). Lastly, I'd like a star and claps.
 
 #### set-up
 
@@ -62,14 +64,14 @@ There is three examples. One is an to open a web server. This is in the `example
 
 2. download one project folder from the `examples` folder
 
-3. follow instructions from there to run example project
+3. follow instructions from those `README.md` files to run example project
 
 #### examples
 
 Here are example queries to run with the `server-example` schema:
 
 ```
-query Example1($withOwner: Bool) { AllPets: pet { name gender owner @include(if: $withOwner) { name gender } } AllPeople: person { name } }
+query Example1($withOwner: Bool) { AllPets: pet { name gender(as: MALEFEMALE) owner @include(if: $withOwner) { name gender(as: MALEFEMALE) } } AllPeople: person { name } }
 ```
 with variable
 ```
@@ -77,7 +79,7 @@ with variable
 ```
 
 ```
-query Example2($asTaxonomy: Bool = false, $withGender: Bool = true) { AllPets: pet { name gender @include(if: $withGender) taxonomy @include(if: $asTaxonomy) { name } family @skip(if: $asTaxonomy) { name } genus @skip(if: $asTaxonomy) { name } species @skip(if: $asTaxonomy) { name } breed @skip(if: $asTaxonomy) { name } } }
+query Example2($asTaxonomy: Bool = false, $withGender: Bool = true) { AllPets: pet { name gender(as: MALEFEMALE) @include(if: $withGender) taxonomy @include(if: $asTaxonomy) { name } family @skip(if: $asTaxonomy) { name } genus @skip(if: $asTaxonomy) { name } species @skip(if: $asTaxonomy) { name } breed @skip(if: $asTaxonomy) { name } } }
 ```
 
 ```

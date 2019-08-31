@@ -27,7 +27,7 @@ import Data.Text (Text,pack,unpack)
 import GHC.Generics (Generic)
 import Data.Conduit (sourceToList)
 
-import GraphQLdbi (processQueryString,processQueryData)
+import GraphQLdbi (processSchema,processQueryString,processQueryData)
 
 -- COMMENT: CONFIGURE DATABASE AND DATA MODELS
 share [mkPersist sqlSettings, mkMigrate "migrateAll"]
@@ -438,12 +438,14 @@ postQueryR = do
             let query = unpack $ unTextarea txt1
             let variables = if (txt2==Nothing) then "" else unpack $ fromJust txt2
 
-            -- -- parse the given query string to make desired query
-            (packageObjects,queries) <- processQueryString "app/serverschema.json" query variables
-            -- -- query
-            queryResults <- mapM (\y -> mapM (\x -> runQuery x) y) queries
-            -- -- process data
-            processedResults <- processQueryData "app/serverschema.json" packageObjects queryResults
+            -- get schema data
+            schema <- processSchema "app/serverschema.json"
+            -- get the given query string to make desired query
+            let (queryData,queries) = processQueryString schema query variables
+            -- query
+            queryResults <- mapM (mapM runQuery) queries
+            -- process data
+            let processedResults = processQueryData schema queryData queryResults
             
             defaultLayout
                 [whamlet|

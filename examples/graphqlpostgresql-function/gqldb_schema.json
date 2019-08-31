@@ -25,15 +25,30 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int"
+          "Type": "Int",
+          "Arguments": []
         },
         {
           "Name": "name",
-          "Type": "Text"
+          "Type": "Text",
+          "Arguments": []
         },
         {
           "Name": "gender",
-          "Type": "Int"
+          "Type": "Int",
+          "Arguments": [
+            {
+              "Name": "as",
+              "Options": [
+                {
+                  "Name": "MALEFEMALE",
+                  "Type": "Text",
+                  "Prefix": "CASE WHEN ",
+                  "Suffix": "==1 THEN 'MALE' ELSE 'FEMALE' END"
+                }
+              ]
+            }
+          ]
         }
       ],
       "ObjectFields": [
@@ -62,11 +77,13 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int"
+          "Type": "Int",
+          "Arguments": []
         },
         {
           "Name": "name",
-          "Type": "Text"
+          "Type": "Text",
+          "Arguments": []
         }
       ],
       "ObjectFields": [
@@ -94,11 +111,13 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int"
+          "Type": "Int",
+          "Arguments": []
         },
         {
           "Name": "name",
-          "Type": "Text"
+          "Type": "Text",
+          "Arguments": []
         }
       ],
       "ObjectFields": [
@@ -126,11 +145,13 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int"
+          "Type": "Int",
+          "Arguments": []
         },
         {
           "Name": "name",
-          "Type": "Text"
+          "Type": "Text",
+          "Arguments": []
         }
       ],
       "ObjectFields": [
@@ -158,11 +179,13 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int"
+          "Type": "Int",
+          "Arguments": []
         },
         {
           "Name": "name",
-          "Type": "Text"
+          "Type": "Text",
+          "Arguments": []
         }
       ],
       "ObjectFields": [
@@ -190,15 +213,30 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int"
+          "Type": "Int",
+          "Arguments": []
         },
         {
           "Name": "name",
-          "Type": "Text"
+          "Type": "Text",
+          "Arguments": []
         },
         {
           "Name": "gender",
-          "Type": "Int"
+          "Type": "Int",
+          "Arguments": [
+            {
+              "Name": "as",
+              "Options": [
+                {
+                  "Name": "MALEFEMALE",
+                  "Type": "Text",
+                  "Prefix": "CASE WHEN ",
+                  "Suffix": "==1 THEN 'MALE' ELSE 'FEMALE' END"
+                }
+              ]
+            }
+          ]
         }
       ],
       "ObjectFields": [
