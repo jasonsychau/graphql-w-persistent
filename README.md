@@ -43,7 +43,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | mutations  | | :thought_balloon: |
 | inline fragments | :heavy_check_mark: | 0.4.0.0 |
 | meta fields | :heavy_check_mark: | 0.5.0.0 |
-| non-null implementation and non-null errors (on data types and arguments) | | |
+| non-null and non-null errors (on data types and arguments) | | |
 | interfaces to type heirarchy | :heavy_check_mark: | 0.1.0.4 |
 | input types | | |
 | introspection | | |
