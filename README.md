@@ -13,7 +13,7 @@
 
 ### News Posts
 
-**2019-08-31 -** Release 6.0.0 is bugs of parent object arguments and of processing parental data. I also reduce the computations to the previous code. I also add arguments feature to scalar types - thanks.
+**2019-08-31 -** Release 6.0.0 is bugs of parent object arguments and of processing parental data. I also reduce the computations to the previous code. I also add arguments feature to scalar types. Will you please leave a star if I have helped? - thanks.
 
 **2019-08-10 -** Version 5.0.0 is published where I've fixed two bugs with subsequent nested objects and with query syntax. I'm sorry that this isn't on the earlier versions. I've added metafields feature and upgraded the SQL joins to maximize data retrieval...please don't forego giving me a star on GitHub, vote on Hackage, and/or claps on my Medium post - thanks!
 
