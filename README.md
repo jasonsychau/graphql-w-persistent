@@ -1,4 +1,4 @@
-## [graphql-w-persistent](http://hackage.haskell.org/package/graphql-w-persistent)
+## [graphql-w-persistent](https://hackage.haskell.org/package/graphql-w-persistent)
 
 <p align="center"><img alt="library image" src="./image.png"/></p>
 
