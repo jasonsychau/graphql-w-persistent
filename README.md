@@ -13,7 +13,7 @@
 
 ### News Posts
 
-**2019-10-07 -** To keep you informed, the next update is going to allow self-identified unique ids for your every table. I’m sorry that this was not already made available, but I now realize the importance of it.
+**2019-10-07 -** To keep you informed, the next update is going to allow self-identified unique ids for your every table. I’m sorry that this was not already made available. I now realize the importance of it.
 
 **2019-08-31 -** Release 6.0.0 is correcting bugs of parent object arguments and of processing parental data. I also reduce the computations to the previous code. I also add arguments feature to scalar types. Will you please leave a star if I have helped? - thanks.
 
