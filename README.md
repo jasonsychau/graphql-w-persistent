@@ -13,7 +13,7 @@
 
 ### News Posts
 
-**2019-10-07 -** To keep you informed, the next update is going to allow self-identified unique ids for your every table. I’m sorry that this was not already made available. I now realize the importance of it.
+**2019-11-16 -** Release 7.0.0 is fixing bugs around using commas after root objects, and I have changed the schema input to allow custom unique id columns when defining database tables. You can use your own primary keys or unique ids for more objects to declare. Another change is declaring server objects with object fields. In this way, you can have objects with separate references against other objects - there isn't a collision (and restriction) on what field names are availble in queries.
 
 **2019-08-31 -** Release 6.0.0 is correcting bugs of parent object arguments and of processing parental data. I also reduce the computations to the previous code. I also add arguments feature to scalar types. Will you please leave a star if I have helped? - thanks.
 
@@ -25,7 +25,7 @@
 
 ### Latest Recommended Version
 
-[0.6.0.0](https://hackage.haskell.org/package/graphql-w-persistent)
+[0.7.0.0](https://hackage.haskell.org/package/graphql-w-persistent)
 
 ### Features
 
@@ -68,7 +68,7 @@ There is three examples. One is an to open a web server. This is in the `example
 
 #### examples
 
-Here are example queries to run with the `server-example` schema:
+Here are example queries to run with the schema in `server-example`:
 
 ```
 query Example1($withOwner: Bool) { AllPets: pet { name gender(as: MALEFEMALE) owner @include(if: $withOwner) { name gender(as: MALEFEMALE) } } AllPeople: person { name } }
