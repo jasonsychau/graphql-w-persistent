@@ -13,7 +13,7 @@
 
 ### News Posts
 
-**2019-11-16 -** Release 7.0.0 is fixing bugs around using commas after root objects, and I have changed the schema input to allow custom unique id columns when defining database tables. You can use your own primary keys or unique ids for more objects to declare. Another change is declaring server objects with object fields. In this way, you can have objects with separate references against other objects - there isn't a collision (and restriction) on what field names are availble in queries.
+**2019-11-21 -** Release 7.0.0 is fixing bugs around using commas or tabs after root objects, and I have changed the schema input to allow custom unique id columns when defining database tables. This package is now more flexible to the input schema of your database. You can use your own primary keys or unique ids for more objects to declare. Another change is declaring server objects with object fields. In this way, you can have objects with separate references against other objects - there isn't a collision (and restriction) on what field names are availble in queries.
 
 **2019-08-31 -** Release 6.0.0 is correcting bugs of parent object arguments and of processing parental data. I also reduce the computations to the previous code. I also add arguments feature to scalar types. Will you please leave a star if I have helped? - thanks.
 
