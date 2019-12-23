@@ -1,0 +1,437 @@
+{
+  "ParentalObjects":[
+    {
+      "ServerName":"Taxonomy",
+      "Pseudonyms":[
+        "taxonomy",
+        "Taxonomy"
+      ],
+      "ServerChildren":[
+        "Breed",
+        "Species",
+        "Family",
+        "Genus"
+      ]
+    }
+  ],
+  "PrimitiveObjects":[
+    {
+      "ServerName": "Person",
+      "Pseudonyms": [
+        "person",
+        "Person"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int",
+          "Arguments": []
+        },
+        {
+          "Name": "name",
+          "Type": "Text",
+          "Arguments": []
+        },
+        {
+          "Name": "gender",
+          "Type": "Int",
+          "Arguments": [
+            {
+              "Name": "as",
+              "Options": [
+                {
+                  "Name": "MALEFEMALE",
+                  "Type": "Text",
+                  "Prefix": "CASE WHEN ",
+                  "Suffix": "==1 THEN 'MALE' ELSE 'FEMALE' END"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "ObjectFields": [
+        {
+          "Names": [
+            "pet"
+          ],
+          "ServerName": "Pet"
+        },
+        {
+          "Names": [
+            "breed"
+          ],
+          "ServerName": "Breed"
+        },
+        {
+          "Names": [
+            "species"
+          ],
+          "ServerName": "Species"
+        },
+        {
+          "Names": [
+            "genus"
+          ],
+          "ServerName": "Genus"
+        },
+        {
+          "Names": [
+            "family"
+          ],
+          "ServerName": "Family"
+        },
+        {
+          "Names": [
+            "taxonomy"   
+          ],
+          "ServerName": "Taxonomy"
+        }
+      ],
+      "DatabaseTable": "person",
+      "UniqueIds": [
+        "id"
+      ],
+      "DatabaseRelationships": [
+        ["person","id","pet","id","pet_ownership","owner_id","animal_id"],
+        ["person","id","breed","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id"],
+        ["person","id","species","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id"],
+        ["person","id","genus","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id"],
+        ["person","id","family","id","pet_ownership","owner_id","animal_id","pet","id","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id","genus","id","family_id"]
+      ]
+    },
+    {
+      "ServerName": "Family",
+      "Pseudonyms": [
+        "Family",
+        "family"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int",
+          "Arguments": []
+        },
+        {
+          "Name": "name",
+          "Type": "Text",
+          "Arguments": []
+        }
+      ],
+      "ObjectFields": [
+        {
+          "Names": [
+            "genus"
+          ],
+          "ServerName": "Genus"
+        },
+        {
+          "Names": [
+            "species"
+          ],
+          "ServerName": "Species"
+        },
+        {
+          "Names": [
+            "breed"
+          ],
+          "ServerName": "Breed"
+        },
+        {
+          "Names": [
+            "pet"
+          ],
+          "ServerName": "Pet"
+        },
+        {
+          "Names": [
+            "person"
+          ],
+          "ServerName": "Person"
+        }
+      ],
+      "DatabaseTable": "family",
+      "UniqueIds": [
+        "id"
+      ],
+      "DatabaseRelationships": [
+        ["family","id","person","id","genus","family_id","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
+        ["family","id","pet","id","genus","family_id","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id"],
+        ["family","id","genus","family_id"],
+        ["family","id","species","genus_id","genus","family_id","id"],
+        ["family","id","breed","species_id","genus","family_id","id","species","genus_id","id"]
+      ]
+    },
+    {
+      "ServerName": "Genus",
+      "Pseudonyms": [
+        "Genus",
+        "genus"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int",
+          "Arguments": []
+        },
+        {
+          "Name": "name",
+          "Type": "Text",
+          "Arguments": []
+        }
+      ],
+      "ObjectFields": [
+        {
+          "Names": [
+            "family"
+          ],
+          "ServerName": "Family"
+        },
+        {
+          "Names": [
+            "species"
+          ],
+          "ServerName": "Species"
+        },
+        {
+          "Names": [
+            "breed"
+          ],
+          "ServerName": "Breed"
+        },
+        {
+          "Names": [
+            "pet"
+          ],
+          "ServerName": "Pet"
+        },
+        {
+          "Names": [
+            "person"
+          ],
+          "ServerName": "Person"
+        }
+      ],
+      "DatabaseTable": "genus",
+      "UniqueIds": [
+        "id"
+      ],
+      "DatabaseRelationships": [
+        ["genus","id","person","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
+        ["genus","id","pet","id","species","genus_id","id","breed","species_id","id","pet_type","breed_id","pet_id"],
+        ["genus","family_id","family","id"],
+        ["genus","id","species","genus_id"],
+        ["genus","id","breed","species_id","species","genus_id","id"]
+      ]
+    },
+    {
+      "ServerName": "Species",
+      "Pseudonyms": [
+        "Species",
+        "species"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int",
+          "Arguments": []
+        },
+        {
+          "Name": "name",
+          "Type": "Text",
+          "Arguments": []
+        }
+      ],
+      "ObjectFields": [
+        {
+          "Names": [
+            "family"
+          ],
+          "ServerName": "Family"
+        },
+        {
+          "Names": [
+            "genus"
+          ],
+          "ServerName": "Genus"
+        },
+        {
+          "Names": [
+            "breed"
+          ],
+          "ServerName": "Breed"
+        },
+        {
+          "Names": [
+            "pet"
+          ],
+          "ServerName": "Pet"
+        },
+        {
+          "Names": [
+            "person"
+          ],
+          "ServerName": "Person"
+        }
+      ],
+      "DatabaseTable": "species",
+      "UniqueIds": [
+        "id"
+      ],
+      "DatabaseRelationships": [
+        ["species","id","person","id","breed","species_id","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
+        ["species","id","pet","id","breed","species_id","id","pet_type","breed_id","pet_id"],
+        ["species","id","breed","species_id"],
+        ["species","genus_id","genus","id"],
+        ["species","id","family","genus_id","genus","species_id","id"]
+      ]
+    },
+    {
+      "ServerName": "Breed",
+      "Pseudonyms": [
+        "Breed",
+        "breed"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int",
+          "Arguments": []
+        },
+        {
+          "Name": "name",
+          "Type": "Text",
+          "Arguments": []
+        }
+      ],
+      "ObjectFields": [
+        {
+          "Names": [
+            "family"
+          ],
+          "ServerName": "Family"
+        },
+        {
+          "Names": [
+            "genus"
+          ],
+          "ServerName": "Genus"
+        },
+        {
+          "Names": [
+            "species"
+          ],
+          "ServerName": "Species"
+        },
+        {
+          "Names": [
+            "pet"
+          ],
+          "ServerName": "Pet"
+        },
+        {
+          "Names": [
+            "person"
+          ],
+          "ServerName": "Person"
+        }
+      ],
+      "DatabaseTable": "breed",
+      "UniqueIds": [
+        "id"
+      ],
+      "DatabaseRelationships": [
+        ["breed","id","person","id","pet_type","breed_id","pet_id","pet_ownership","animal_id","owner_id"],
+        ["breed","id","pet","id","pet_type","breed_id","pet_id"],
+        ["breed","species_id","species","id"],
+        ["breed","species_id","genus","id","species","id","genus_id"],
+        ["breed","species_id","family","id","species","id","genus_id","genus","id","family_id"]
+      ]
+    },
+    {
+      "ServerName": "Pet",
+      "Pseudonyms": [
+        "pet",
+        "Pet"
+      ],
+      "ScalarFields": [
+        {
+          "Name": "id",
+          "Type": "Int",
+          "Arguments": []
+        },
+        {
+          "Name": "name",
+          "Type": "Text",
+          "Arguments": []
+        },
+        {
+          "Name": "gender",
+          "Type": "Int",
+          "Arguments": [
+            {
+              "Name": "as",
+              "Options": [
+                {
+                  "Name": "MALEFEMALE",
+                  "Type": "Text",
+                  "Prefix": "CASE WHEN ",
+                  "Suffix": "==1 THEN 'MALE' ELSE 'FEMALE' END"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "ObjectFields": [
+        {
+          "Names": [
+            "owner"
+          ],
+          "ServerName": "Person"
+        },
+        {
+          "Names": [
+            "breed"
+          ],
+          "ServerName": "Breed"
+        },
+        {
+          "Names": [
+            "species"
+          ],
+          "ServerName": "Species"
+        },
+        {
+          "Names": [
+            "genus"
+          ],
+          "ServerName": "Genus"
+        },
+        {
+          "Names": [
+            "family"
+          ],
+          "ServerName": "Family"
+        },
+        {
+          "Names": [
+            "taxonomy"
+          ],
+          "ServerName": "Taxonomy"
+        }
+      ],
+      "DatabaseTable": "pet",
+      "UniqueIds": [
+        "id"
+      ],
+      "DatabaseRelationships": [
+        ["pet","id","person","id","pet_ownership","animal_id","owner_id"],
+        ["pet","id","breed","id","pet_type","pet_id","breed_id"],
+        ["pet","id","species","id","pet_type","pet_id","breed_id","breed","id","species_id"],
+        ["pet","id","genus","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id"],
+        ["pet","id","family","id","pet_type","pet_id","breed_id","breed","id","species_id","species","id","genus_id","genus","id","family_id"]
+      ]
+    }
+  ]
+}
