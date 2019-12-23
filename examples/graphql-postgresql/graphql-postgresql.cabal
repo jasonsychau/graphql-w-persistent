@@ -1,0 +1,92 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: b86fd066c4b60fd8a655d4f77098f50487cd7c14caa4a015dda1bd4904f665df
+
+name:           graphql-postgresql
+version:        0.1.0.0
+description:    Please see the README
+homepage:       https://github.com/jasonsychau/graphql-w-persistent#readme
+bug-reports:    https://github.com/jasonsychau/graphql-w-persistent/issues
+author:         Jason Chau
+maintainer:     jasonsychau@live.ca
+copyright:      2019 Jason Chau
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/jasonsychau/graphql-w-persistent
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_graphql_postgresql
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , conduit
+    , containers
+    , graphql-w-persistent
+    , json
+    , monad-logger
+    , persistent-postgresql
+    , persistent-template
+    , text
+    , transformers
+  default-language: Haskell2010
+
+executable graphql-postgresql-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_graphql_postgresql
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , conduit
+    , containers
+    , graphql-postgresql
+    , graphql-w-persistent
+    , json
+    , monad-logger
+    , persistent-postgresql
+    , persistent-template
+    , text
+    , transformers
+  default-language: Haskell2010
+
+test-suite graphql-postgresql-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_graphql_postgresql
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , conduit
+    , containers
+    , graphql-postgresql
+    , graphql-w-persistent
+    , json
+    , monad-logger
+    , persistent-postgresql
+    , persistent-template
+    , text
+    , transformers
+  default-language: Haskell2010

@@ -1,4 +1,4 @@
-name:                development
+name:                graphql-mysql 
 version:             0.1.0.0
 github:              "jasonsychau/graphql-w-persistent"
 license:             BSD3
@@ -27,12 +27,26 @@ dependencies:
 - persistent-mysql
 - persistent-template
 - conduit
+- graphql-w-persistent
+- transformers
+- monad-logger
 
 library:
   source-dirs: src
 
+executables:
+  graphql-mysql-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - graphql-mysql
+
 tests:
-  development-test:
+  graphql-mysql-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -40,4 +54,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - development
+    - graphql-mysql 

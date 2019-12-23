@@ -40,7 +40,7 @@ packages:
 extra-deps:
 - persistent-sqlite-2.10.4
 - persistent-2.10.0
-- graphql-w-persistent-0.6.0.0
+- graphql-w-persistent-0.7.0.0
 - persistent-template-2.7.1
 
 # Override default flag values for local packages and extra-deps

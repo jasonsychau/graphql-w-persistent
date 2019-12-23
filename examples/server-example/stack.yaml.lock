@@ -19,12 +19,12 @@ packages:
   original:
     hackage: persistent-2.10.0
 - completed:
-    hackage: graphql-w-persistent-0.5.0.0@sha256:b8f8249690f83ac6022b7bd9d0e88921411484ea2593b33b70558bfbae7e39bb,3875
+    hackage: graphql-w-persistent-0.7.0.0@sha256:9724e5d88134a5c73a17c5041d53892cf4e7c8b4048fac53e26c82cf515c24ab,3965
     pantry-tree:
-      size: 1124
-      sha256: 007a4688fa2f429d21cb2f69945403a581158d33031495d698d6d9c90eb2c4fb
+      size: 1126
+      sha256: 0653af5e2c35fa10939c4f1c333040fd58f75d071cf0d4a2e98d35e806bde49f
   original:
-    hackage: graphql-w-persistent-0.5.0.0
+    hackage: graphql-w-persistent-0.7.0.0
 - completed:
     hackage: persistent-template-2.7.1@sha256:6705bd3063fdc9dcb83515f9c748f948b8f2d3316a178ea20a775f7003272463,2703
     pantry-tree:
@@ -34,7 +34,7 @@ packages:
     hackage: persistent-template-2.7.1
 snapshots:
 - completed:
-    size: 523443
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/14/0.yaml
-    sha256: 283773e7120f5446d961eab35ea95c9af9c24187cc178537bd29273200a05171
-  original: lts-14.0
+    size: 523448
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/14/1.yaml
+    sha256: 0045b9bae36c3bb2dd374c29b586389845af1557eea0423958d152fc500d4fbf
+  original: lts-14.1

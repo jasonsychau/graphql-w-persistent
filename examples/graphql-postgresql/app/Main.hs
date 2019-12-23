@@ -1,6 +1,4 @@
 #!/usr/bin/env stack
-{-# LANGUAGE
-#-}
 module Main where
 
 import Lib (runQuery)

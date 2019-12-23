@@ -1,4 +1,4 @@
-name:                development
+name:                graphql-postgresql 
 version:             0.1.0.0
 github:              "jasonsychau/graphql-w-persistent"
 license:             BSD3
@@ -27,12 +27,27 @@ dependencies:
 - persistent-postgresql
 - persistent-template
 - conduit
+- monad-logger 
+- transformers
+- bytestring
+- graphql-w-persistent
 
 library:
   source-dirs: src
 
+executables:
+  graphql-postgresql-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - graphql-postgresql
+
 tests:
-  development-test:
+  graphql-postgresql-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -40,4 +55,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - development
+    - graphql-postgresql

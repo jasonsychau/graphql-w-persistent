@@ -1,6 +1,6 @@
-# mysql-example
+# graphql-postgresql
 
-### mysql example
+### graphql-postgresql
 
 - cd to this directory
 - stack build
