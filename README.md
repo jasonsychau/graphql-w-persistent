@@ -58,6 +58,10 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | business logic layer | | |
 | caching | | |
 
+### Web application
+
+A web application is hosted to help make a schema. To see one of the features of this GraphQL interface, an example schema `example-schema.json` is saved in the `examples` folder. Once imported into application, a diagram is drawn to visualize the connections between objects. App link is [here](https://jasonsychau.github.io/graphql-w-persistent). I hope that I've helped.
+
 ### Examples
 
 There is three examples. One is an to open a web server. This is in the `examples/server-example` folder. You can run it by downloading project folder and following the instructions in the `README.md` file. The other two examples are applying the GraphQL middleware to a pre-existing MySQL or Postgresql database with AWS Lambda and AWS API Gateway. Instructions are in the `README.md` file to make AWS Lambda functions, but you can read more on my [Medium article](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c). Lastly, I'd like a star and claps.
