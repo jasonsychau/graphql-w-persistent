@@ -37,10 +37,10 @@ runQuery qry vars =  do
         let (packageObjects,queries) = processQueryString
             schema qry vars
         -- query
-        queryResults <- mapM (mapM runQuery) queries
+        queryResults <- mapM (mapM (mapM runQuery)) queries
         -- process data
         let processedResults = processQueryData
-            schema packageObjects $ map (map $ map $ map
+            schema packageObjects $ map (map $ map $ map $ map
                 (\y -> case (fromPersistValue y :: Either Text Text) of
                     (Right res) -> res
                     (Left res)  -> res)) queryResults

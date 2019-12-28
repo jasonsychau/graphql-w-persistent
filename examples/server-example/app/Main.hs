@@ -443,7 +443,7 @@ postQueryR = do
             -- get the given query string to make desired query
             let (queryData,queries) = processQueryString schema query variables
             -- query
-            queryResults <- mapM (mapM runQuery) queries
+            queryResults <- mapM (mapM (mapM runQuery)) queries
             -- process data
             let processedResults = processQueryData schema queryData queryResults
             

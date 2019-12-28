@@ -13,6 +13,8 @@
 
 ### News Posts
 
+**2019-12-28 -** Version 0.7.0.1 is fixing the exceptions in 0.7.0.0. Version 0.8.0.0 is reducing queried data by making separate queries for every object and by reading previously queried data for parent objects. In contrast to this space-saving, data processing is slower. Thus, 0.7.0.1 is available if data is not many.
+
 **2019-12-21 -** [Here](https://jasonsychau.github.io/graphql-w-persistent) is a companion web application to help in making your schema json file.
 
 **2019-11-16 (Edit: 2019-11-21) -** Release 7.0.0 is fixing bugs around using commas or tabs after root objects, and I have changed the schema input to allow custom unique id columns when defining database tables. This package is now more flexible to the input schema of your database. You can use your own primary keys or unique ids for more objects to declare. Another change is declaring server objects with object fields. In this way, you can have objects with separate references against other objects - there isn't a collision (and restriction) on what field names are availble in queries.
@@ -27,7 +29,7 @@
 
 ### Latest Recommended Version
 
-[0.7.0.0](https://hackage.haskell.org/package/graphql-w-persistent)
+[0.7.0.1](https://hackage.haskell.org/package/graphql-w-persistent-0.7.0.1), [0.8.0.0](https://hackage.haskell.org/package/graphql-w-persistent-0.8.0.0)
 
 ### Features
 
