@@ -39,7 +39,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | data transformation arguments on scalar fields | :heavy_check_mark: | 0.6.0.0 |
 | aliases | :heavy_check_mark: | 0.1.0.1 |
 | named fragments | :heavy_check_mark: | 0.1.0.1 (within variables is not supported until 0.3.2.1) |
-| operation names | | :thought_balloon: |
+| operation names | | |
 | variables (default value ~~and required/not~~) | :heavy_check_mark: | 0.2.0.0 (multiple variables is not supported until 0.3.2.1) |
 | directives | :heavy_check_mark: | 0.3.2.1 |
 | mutations  | | :thought_balloon: |
@@ -47,9 +47,9 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 | meta fields | :heavy_check_mark: | 0.5.0.0 |
 | non-null and non-null errors (on data types and arguments) | | |
 | interfaces to type heirarchy | :heavy_check_mark: | 0.1.0.4 |
-| input types | | |
-| introspection | | |
-| pagination | | :thought_balloon: |
+| input types | | :thought_balloon: |
+| introspection | | :thought_balloon: |
+| pagination | | |
 | authorization moderated fields and null types (authorization layer before GraphQL) | | |
 | pagination for long lists (as transformations) | | |
 | server-defined fields (like counts/previews from the thinking in graphs page) and user-designed schema | | |
