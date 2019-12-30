@@ -1,4 +1,4 @@
-name:                graphqlpostgresql-function
+name:                aws-graphql-postgresql
 version:             0.1.0.0
 github:              "jasonsychau"
 license:             BSD3
@@ -44,10 +44,10 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - graphqlpostgresql-function
+    - aws-graphql-postgresql
 
 tests:
-  graphqlpostgresql-function-test:
+  aws-graphql-postgresql-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -55,4 +55,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - graphqlpostgresql-function
+    - aws-graphql-postgresql

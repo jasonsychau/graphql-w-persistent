@@ -1,4 +1,4 @@
-name:                graphqlmysql-function
+name:                aws-graphql-mysql
 version:             0.1.0.0
 github:              "jasonsychau"
 license:             BSD3
@@ -43,10 +43,10 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - graphqlmysql-function
+    - aws-graphql-mysql
 
 tests:
-  graphqlmysql-function-test:
+  aws-graphql-mysql-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -54,4 +54,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - graphqlmysql-function
+    - aws-graphql-mysql
