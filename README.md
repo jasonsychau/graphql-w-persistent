@@ -2,6 +2,8 @@
 
 ### Project Sponsors
 
+I appreciate you.
+
 <p align="center"><img alt="library image" src="./image.png"/></p>
 
 #### This is a GraphQL database middleware for GraphQL interpretation and results. It is used for abstracting away intermediary tables between joined tables/entities.
