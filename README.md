@@ -1,8 +1,8 @@
-## graphql-w-persistent
-
-### Project Sponsors
+## Project Sponsors
 
 I appreciate you.
+
+## graphql-w-persistent
 
 <p align="center"><img alt="library image" src="./image.png"/></p>
 
