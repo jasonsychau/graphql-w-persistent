@@ -6,7 +6,7 @@ I appreciate you.
 
 <p align="center"><img alt="library image" src="./image.png"/></p>
 
-#### This is a GraphQL database interface for query interpretation and results. It is used for abstracting away intermediary tables between joined tables/entities.
+#### This is a GraphQL database interface for query interpretation and results. It is used for abstracting away intermediary tables between joined tables/entities - go forth and explore your data!
 
 [![Hackage](https://img.shields.io/hackage/v/graphql-w-persistent.svg)](https://hackage.haskell.org/package/graphql-w-persistent)
 [![Hackage CI](http://matrix.hackage.haskell.org/api/v2/packages/graphql-w-persistent/badge)](https://matrix.hackage.haskell.org/package/graphql-w-persistent)
