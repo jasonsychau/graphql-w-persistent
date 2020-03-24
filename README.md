@@ -6,7 +6,7 @@ I appreciate you.
 
 <p align="center"><img alt="library image" src="./image.png"/></p>
 
-#### This is a GraphQL database interface for query interpretation and results. It is about removing intermediary tables from your queries.
+#### This is a GraphQL database interface for query interpretation and results.
 
 [![Hackage](https://img.shields.io/hackage/v/graphql-w-persistent.svg)](https://hackage.haskell.org/package/graphql-w-persistent)
 [![Hackage CI](http://matrix.hackage.haskell.org/api/v2/packages/graphql-w-persistent/badge)](https://matrix.hackage.haskell.org/package/graphql-w-persistent)
