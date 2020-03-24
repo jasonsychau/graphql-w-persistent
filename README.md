@@ -64,7 +64,7 @@ Here's a check-list from the [official documentation](https://graphql.github.io/
 
 ### Web application
 
-A web application is hosted to help make a schema. To see one of the features of this GraphQL interface, an example schema `example-schema.json` is saved in the `examples` folder. Once imported into application, a diagram is drawn to visualize the connections between objects. App link is [here](https://jasonsychau.github.io/graphql-w-persistent). I hope that I've helped.
+A web application is hosted to help make a schema. To see one of the features of this GraphQL interface, an example schema `example-schema.json` is saved in the `examples` folder. Once imported into application, a diagram is drawn to visualize the connections between objects. App link is [here](https://jasonsychau.github.io/graphql-w-persistent) - check it out for a fully-connected schema!
 
 ### Examples
 
