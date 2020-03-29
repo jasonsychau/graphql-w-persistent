@@ -68,7 +68,7 @@ A web application is hosted to help make a schema. To see one of the features of
 
 ### Examples
 
-There is three examples. One is an to open a web server. This is in the `examples/server-example` folder. You can run it by downloading project folder and following the instructions in the `README.md` file. The other two examples are applying the GraphQL middleware to a pre-existing MySQL or Postgresql database with AWS Lambda and AWS API Gateway. Instructions are in the `README.md` file to make AWS Lambda functions, but you can read more on my [Medium article](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c). Lastly, I'd like a star and claps.
+There is five examples. One is an to open a web server. This is in the `examples/server-example` folder. You can run it by downloading project folder and following the instructions in the `README.md` file. Two examples are applying the GraphQL middleware to a pre-existing MySQL or Postgresql database. The other two are putting these onto AWS for cloud solutions. Instructions are in the `README.md` file to make AWS Lambda functions, but you can read more on my [Medium article](https://medium.com/@jasonsychau/add-graphql-interface-to-your-pre-existing-mysql-postgresql-database-ce1e52214c3c). Lastly, I'd like a star and claps.
 
 #### set-up
 
