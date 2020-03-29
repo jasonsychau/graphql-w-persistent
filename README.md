@@ -4,8 +4,6 @@ I appreciate you.
 
 ## graphql-w-persistent
 
-<!-- <p align="center"><img alt="library image" src="./image.jpg"/></p> -->
-
 #### This is a GraphQL database interface for query interpretation and results.
 
 [![Hackage](https://img.shields.io/hackage/v/graphql-w-persistent.svg)](https://hackage.haskell.org/package/graphql-w-persistent)
