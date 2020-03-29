@@ -101,3 +101,6 @@ query Example3 ($withOwner: Bool = false) { MalePets: pet (gender: 1) { ...petFi
 ```
 query Example4 { taxonomy { name ... on Species { pet { name } } } }
 ```
+
+
+<p align="center"><img alt="library image" src="./image.png"/></p>
