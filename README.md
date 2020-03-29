@@ -4,7 +4,7 @@ I appreciate you.
 
 ## graphql-w-persistent
 
-<p align="center"><img alt="library image" src="./image.png"/></p>
+<p align="center"><img alt="library image" src="./image.jpg"/></p>
 
 #### This is a GraphQL database interface for query interpretation and results.
 
