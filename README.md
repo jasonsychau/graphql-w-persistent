@@ -112,4 +112,4 @@ The canvas bag is simple and pretty. It is appropriate for your clothing, access
 
 
 
-<p align="center"><img alt="library image" src="./image.png"/></p>
+<!--- <p align="center"><img alt="library image" src="./image.png"/></p> --->
