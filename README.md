@@ -104,6 +104,7 @@ query Example4 { taxonomy { name ... on Species { pet { name } } } }
 
 From my [GitHub sponsors page](https://github.com/sponsors/jasonsychau), you can order printed merchandise.
 
+The canvas bag is simple and pretty. It is appropriate for your clothing, accessories, and snacks.
 <img alt="library image" src="./canvas1.jpg" width="203" height="307"/>
 
 <p align="center"><img alt="library image" src="./image.png"/></p>
