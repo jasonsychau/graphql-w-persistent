@@ -26,12 +26,12 @@ packages:
   original:
     hackage: conduit-1.3.1.1
 - completed:
-    hackage: graphql-w-persistent-0.7.0.0@sha256:9724e5d88134a5c73a17c5041d53892cf4e7c8b4048fac53e26c82cf515c24ab,3965
+    hackage: graphql-w-persistent-0.8.0.0@sha256:2fdf0edd036cc4c05750f1791e76e0c0a75caf757753274b9f62bfe515f39718,3875
     pantry-tree:
       size: 1126
-      sha256: 0653af5e2c35fa10939c4f1c333040fd58f75d071cf0d4a2e98d35e806bde49f
+      sha256: a1c86c73890966836e0e169b4333722be78fef438a33af6cd6177a0dec808686
   original:
-    hackage: graphql-w-persistent-0.7.0.0
+    hackage: graphql-w-persistent-0.8.0.0
 snapshots:
 - completed:
     size: 523443
