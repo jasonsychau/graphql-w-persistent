@@ -104,7 +104,7 @@ query Example4 { taxonomy { name ... on Species { pet { name } } } }
 
 From my [GitHub sponsors page](https://github.com/sponsors/jasonsychau), you can order printed merchandise.
 
-![](./canvas1.JPG =406x614)
+![Canvas bag photo 1](/canvas1.JPG =203x307)
 
 
 <p align="center"><img alt="library image" src="./image.png"/></p>
