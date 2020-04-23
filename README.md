@@ -107,11 +107,7 @@ From my [GitHub sponsors page](https://github.com/sponsors/jasonsychau), you can
 The canvas bag is simple and pretty. It is appropriate for your clothing, accessories, and snacks.
 
 
-<img alt="Canvas bag photo 1" src="./canvas1.jpg"/>
-<img alt="Canvas bag photo 2" src="./canvas2.jpg"/>
-<img alt="Canvas bag photo 3" src="./canvas3.jpg"/>
-<img alt="Canvas bag photo 4" src="./canvas4.jpg"/>
-<img alt="Canvas bag photo 5" src="./canvas5.jpg"/>
+![Canvas bag photo 1](canvas1.jpg) ![Canvas bag photo 2](canvas2.jpg) ![Canvas bag photo 3](canvas3.jpg) ![Canvas bag photo 4](canvas4.jpg) ![Canvas bag photo 5](canvas5.jpg)
 
 
 
