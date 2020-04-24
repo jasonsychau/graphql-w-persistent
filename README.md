@@ -114,13 +114,13 @@ query Example2($asTaxonomy: Bool = false, $withGender: Bool = true) {
       name
     }
     genus @skip(if: $asTaxonomy) {
-       name
+      name
     }
     species @skip(if: $asTaxonomy) {
-       name
+      name
     }
     breed @skip(if: $asTaxonomy) {
-       name
+      name
     }
   }
 }
