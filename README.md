@@ -80,6 +80,7 @@ There is five examples. One is an to open a web server. This is in the `examples
 
 Here are example queries to run with the schema in `server-example`:
 
+##### example 1
 ```
 query Example1($withOwner: Bool) {
   AllPets: pet {
@@ -100,10 +101,32 @@ with variable
 { "withOwner": false }
 ```
 
+##### example 2
 ```
-query Example2($asTaxonomy: Bool = false, $withGender: Bool = true) { AllPets: pet { name gender(as: MALEFEMALE) @include(if: $withGender) taxonomy @include(if: $asTaxonomy) { name } family @skip(if: $asTaxonomy) { name } genus @skip(if: $asTaxonomy) { name } species @skip(if: $asTaxonomy) { name } breed @skip(if: $asTaxonomy) { name } } }
+query Example2($asTaxonomy: Bool = false, $withGender: Bool = true) {
+  AllPets: pet {
+    name
+    gender(as: MALEFEMALE) @include(if: $withGender)
+    taxonomy @include(if: $asTaxonomy) {
+      name
+    }
+    family @skip(if: $asTaxonomy) {
+      name
+    }
+    genus @skip(if: $asTaxonomy) {
+       name
+    }
+    species @skip(if: $asTaxonomy) {
+       name
+    }
+    breed @skip(if: $asTaxonomy) {
+       name
+    }
+  }
+}
 ```
 
+##### example 3
 ```
 query Example3 ($withOwner: Bool = false) {
   MalePets: pet (gender: 1) {
@@ -123,6 +146,7 @@ fragment petFields on Pet {
 }
 ```
 
+##### example 4
 ```
 query Example4 {
   taxonomy {
