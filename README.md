@@ -17,6 +17,8 @@ To become a sponsor and/or purchase merchandise, you can visit the below [Mercha
 
 ### News Posts
 
+**2020-04-24 -** I know that there are issues with the package (like not working null values). I will address these and other improvements in a planned future update.
+
 **2019-12-28 -** Version 0.7.0.1 is fixing the exceptions in 0.7.0.0. Version 0.8.0.0 is reducing queried data by making separate queries for every object and by reading previously queried data for parent objects. In contrast to this space-saving, data processing is slower. Thus, 0.7.0.1 is available if data is not many.
 
 **2019-12-21 -** [Here](https://jasonsychau.github.io/graphql-w-persistent) is a companion web application to help in making your schema json file.
