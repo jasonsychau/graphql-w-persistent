@@ -2,6 +2,8 @@
 
 I appreciate you.
 
+To become a sponsor and purchase merchandise, you can visit the below [Merchandise section](#merchandise).
+
 ## graphql-w-persistent
 
 #### This is a GraphQL database interface for query interpretation and results.
