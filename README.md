@@ -100,7 +100,7 @@ query Example3 ($withOwner: Bool = false) { MalePets: pet (gender: 1) { ...petFi
 query Example4 { taxonomy { name ... on Species { pet { name } } } }
 ```
 
-#### merchandise
+### Merchandise
 
 From my [GitHub sponsors page](https://github.com/sponsors/jasonsychau), you can order printed merchandise.
 
