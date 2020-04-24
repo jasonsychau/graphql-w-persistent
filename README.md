@@ -81,7 +81,19 @@ There is five examples. One is an to open a web server. This is in the `examples
 Here are example queries to run with the schema in `server-example`:
 
 ```
-query Example1($withOwner: Bool) { AllPets: pet { name gender(as: MALEFEMALE) owner @include(if: $withOwner) { name gender(as: MALEFEMALE) } } AllPeople: person { name } }
+query Example1($withOwner: Bool) {
+  AllPets: pet {
+    name
+    gender(as: MALEFEMALE)
+    owner @include(if: $withOwner) {
+      name
+      gender(as: MALEFEMALE)
+    }
+  }
+  AllPeople: person {
+    name
+  }
+}
 ```
 with variable
 ```
@@ -93,16 +105,40 @@ query Example2($asTaxonomy: Bool = false, $withGender: Bool = true) { AllPets: p
 ```
 
 ```
-query Example3 ($withOwner: Bool = false) { MalePets: pet (gender: 1) { ...petFields } FemalePets: pet (gender: 0) { ...petFields } } fragment petFields on Pet { name owner @include(if: $withOwner) { name } }
+query Example3 ($withOwner: Bool = false) {
+  MalePets: pet (gender: 1) {
+    ...petFields
+  }
+  FemalePets: pet (gender: 0) {
+    ...petFields
+  }
+}
+
+fragment petFields on Pet {
+  name
+  owner
+  @include(if: $withOwner) {
+    name
+  }
+}
 ```
 
 ```
-query Example4 { taxonomy { name ... on Species { pet { name } } } }
+query Example4 {
+  taxonomy {
+    name
+    ... on Species {
+      pet {
+        name
+      }
+    }
+  }
+}
 ```
 
 ### Merchandise
 
-From my [GitHub sponsors page](https://github.com/sponsors/jasonsychau), you can order printed merchandise.
+From my [GitHub sponsors page](https://github.com/sponsors/jasonsychau), you can order printed merchandise. This is the only way to reward the developer (me) for my hard-work!
 
 The canvas bag is simple and pretty. It is appropriate for your clothing, accessories, and snacks.
 
