@@ -2,7 +2,7 @@
 
 I appreciate you.
 
-To become a sponsor and purchase merchandise, you can visit the below [Merchandise section](#merchandise).
+To become a sponsor and/or purchase merchandise, you can visit the below [Merchandise section](#merchandise).
 
 ## graphql-w-persistent
 
