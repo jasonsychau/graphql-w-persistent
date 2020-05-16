@@ -6,7 +6,7 @@ To become a sponsor and/or purchase merchandise, you can visit the below [Mercha
 
 ## graphql-w-persistent
 
-#### This is a GraphQL database interface for query interpretation and results.
+#### This is an application of GraphQL to SQL database querying and processing data.
 
 [![Hackage](https://img.shields.io/hackage/v/graphql-w-persistent.svg)](https://hackage.haskell.org/package/graphql-w-persistent)
 [![Hackage CI](http://matrix.hackage.haskell.org/api/v2/packages/graphql-w-persistent/badge)](https://matrix.hackage.haskell.org/package/graphql-w-persistent)
