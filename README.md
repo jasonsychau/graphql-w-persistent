@@ -17,7 +17,7 @@ To become a sponsor and/or purchase merchandise, you can visit the below [Mercha
 
 ### News Posts
 
-**2020-05-22 -** Known issues: in the next version, I will fix null values support, queries with more than two nested objects, table linkages where a table is more-than-once in the link, and other improvements - thanks for your patience.
+**2020-05-22 -** Known issues: in the next version, I will fix null values support; queries with more than two nested objects; table linkages where a table is more-than-once in the link; and other improvements - thanks for your patience.
 
 **2019-12-28 -** Version 0.7.0.1 is fixing the exceptions in 0.7.0.0. Version 0.8.0.0 is reducing queried data by making separate queries for every object and by reading previously queried data for parent objects. In contrast to this space-saving, data processing is slower. Thus, 0.7.0.1 is available if data is not many.
 
