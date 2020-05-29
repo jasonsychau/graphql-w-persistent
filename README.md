@@ -35,7 +35,7 @@ To become a sponsor and/or purchase merchandise, you can visit the below [Mercha
 
 ### Latest Recommended Version
 
-[0.7.0.1](https://hackage.haskell.org/package/graphql-w-persistent-0.7.0.1), [0.8.0.0](https://hackage.haskell.org/package/graphql-w-persistent-0.8.0.0)
+[0.7.0.1](https://hackage.haskell.org/package/graphql-w-persistent-0.7.0.1)
 
 ### Features
 
