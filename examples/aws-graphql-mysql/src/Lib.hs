@@ -20,6 +20,18 @@ import GraphQLdbi (processSchema,processQueryString,processQueryData)
 
 share [mkPersist sqlSettings, mkMigrate "migrateAll"] []
 
+toTxt :: PersistValue -> Text
+toTxt (PersistText txt) = txt
+toDbl :: PersistValue -> Double
+toDbl (PersistDouble d) = d
+toDbl (PersistRational r) = (fromRational r)
+toInt :: PersistValue -> Int64
+toInt (PersistInt64 i) = i
+toBool :: PersistValue -> Bool
+toBool (PersistBool b) = b
+isNull :: PersistValue -> Bool
+isNull PersistNull = True
+isNull _ = False
 runQuery :: String -> String -> IO String
 runQuery qry vars =  do
     let connectionInfo = defaultConnectInfo {
@@ -39,11 +51,7 @@ runQuery qry vars =  do
         -- query
         queryResults <- mapM (mapM (mapM runQuery)) queries
         -- process data
-        let processedResults = processQueryData
-            schema packageObjects $ map (map $ map $ map $ map
-                (\y -> case (fromPersistValue y :: Either Text Text) of
-                    (Right res) -> res
-                    (Left res)  -> res)) queryResults
+        let processedResults = processQueryData toTxt toDbl toInt toBool isNull schema packageObjects queryResults
         return processedResults
         where
             runQuery x = sourceToList $ rawQuery (pack x) []

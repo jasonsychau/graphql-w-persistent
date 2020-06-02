@@ -421,13 +421,22 @@ postPetOwnership2R = do
             |]
 
 -- COMMENT: DEFINE A FUNCTION TO ABSTRACT AWAY MONAD FUNCTION SEQUENCE TO BE USED MULTIPLE TIMES IN BELOW CODE BLOCK
-runQuery :: String -> HandlerFor App [[Text]]
+runQuery :: String -> HandlerFor App [[PersistValue]]
 runQuery qry = do
     results <- runDB $ sourceToList $ rawQuery (pack qry) []
-    let iteratedResults = map (map (\x->case fromPersistValueText x of
-                                (Left res)  -> res
-                                (Right res) -> res)) results
-    return iteratedResults
+    return results
+toTxt :: PersistValue -> Text
+toTxt (PersistText txt) = txt
+toDbl :: PersistValue -> Double
+toDbl (PersistDouble d) = d
+toDbl (PersistRational r) = (fromRational r)
+toInt :: PersistValue -> Int64
+toInt (PersistInt64 i) = i
+toBool :: PersistValue -> Bool
+toBool (PersistBool b) = b
+isNull :: PersistValue -> Bool
+isNull PersistNull = True
+isNull _ = False
 
 -- COMMENT: THIS IS OUR GRAPHQL FORM. QUERIES ARE INPUT HERE.
 postQueryR = do
@@ -445,11 +454,11 @@ postQueryR = do
             -- query
             queryResults <- mapM (mapM (mapM runQuery)) queries
             -- process data
-            let processedResults = processQueryData schema queryData queryResults
+            let processedResults = processQueryData toTxt toDbl toInt toBool isNull schema queryData queryResults
             
             defaultLayout
                 [whamlet|
-                    <p>#{processedResults}
+                    <p>#{show results}
                     <a href=@{HomeR}>Home
                 |]
         -- COMMENT: IN CASE FORM IS INCOMPLETE, WE RETURN TO THE FORM
