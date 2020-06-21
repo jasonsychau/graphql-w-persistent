@@ -8,6 +8,10 @@ To become a sponsor and/or purchase merchandise, you can visit the below [Mercha
 
 #### A scalable application of GraphQL to SQL database querying and processing data.
 
+- for your desktop applications
+- for data exploration
+- for aggregated data
+
 [![Hackage](https://img.shields.io/hackage/v/graphql-w-persistent.svg)](https://hackage.haskell.org/package/graphql-w-persistent)
 [![Hackage CI](http://matrix.hackage.haskell.org/api/v2/packages/graphql-w-persistent/badge)](https://matrix.hackage.haskell.org/package/graphql-w-persistent)
 [![Hackage-Deps](https://img.shields.io/hackage-deps/v/graphql-w-persistent.svg)](http://packdeps.haskellers.com/feed?needle=graphql-w-persistent)
