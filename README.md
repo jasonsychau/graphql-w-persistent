@@ -179,7 +179,7 @@ The canvas bag is simple and pretty. It is appropriate for your clothing, access
 
 The mug is a standard format mug, but it is smaller and easier to hold in the hands.
 
-![Mug photo 1](mug1.JPG) ![Mug photo 2](mug2.JPG)
+![Mug photo 1](mug1.jpg) ![Mug photo 2](mug2.jpg)
 
 
 <!--- <p align="center"><img alt="library image" src="./image.png"/></p> --->
