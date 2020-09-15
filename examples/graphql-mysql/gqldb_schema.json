@@ -24,7 +24,7 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int",
+          "Type": "Int64",
           "Arguments": []
         },
         {
@@ -34,7 +34,7 @@
         },
         {
           "Name": "gender",
-          "Type": "Int",
+          "Type": "Int64",
           "Arguments": [
             {
               "Name": "as",
@@ -109,7 +109,7 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int",
+          "Type": "Int64",
           "Arguments": []
         },
         {
@@ -171,7 +171,7 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int",
+          "Type": "Int64",
           "Arguments": []
         },
         {
@@ -233,7 +233,7 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int",
+          "Type": "Int64",
           "Arguments": []
         },
         {
@@ -295,7 +295,7 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int",
+          "Type": "Int64",
           "Arguments": []
         },
         {
@@ -357,7 +357,7 @@
       "ScalarFields": [
         {
           "Name": "id",
-          "Type": "Int",
+          "Type": "Int64",
           "Arguments": []
         },
         {
@@ -367,7 +367,7 @@
         },
         {
           "Name": "gender",
-          "Type": "Int",
+          "Type": "Int64",
           "Arguments": [
             {
               "Name": "as",
