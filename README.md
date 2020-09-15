@@ -90,7 +90,7 @@ Here are example queries to run with the schema in `server-example`:
 
 ##### example 1
 ```
-query Example1($withOwner: Bool) {
+query Example1($withOwner: Boolean) {
   AllPets: pet {
     name
     gender(as: MALEFEMALE)
@@ -111,7 +111,7 @@ with variable
 
 ##### example 2
 ```
-query Example2($asTaxonomy: Bool = false, $withGender: Bool = true) {
+query Example2($asTaxonomy: Boolean = false, $withGender: Boolean = true) {
   AllPets: pet {
     name
     gender(as: MALEFEMALE) @include(if: $withGender)
@@ -136,7 +136,7 @@ query Example2($asTaxonomy: Bool = false, $withGender: Bool = true) {
 
 ##### example 3
 ```
-query Example3 ($withOwner: Bool = false) {
+query Example3 ($withOwner: Boolean = false) {
   MalePets: pet (gender: 1) {
     ...petFields
   }
