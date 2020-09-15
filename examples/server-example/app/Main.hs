@@ -20,12 +20,14 @@ import Database.Persist.Sqlite (runSqlPool,ConnectionPool,SqlBackend,runMigratio
 import Database.Persist.Quasi (lowerCaseSettings)
 import Control.Monad.Trans.Resource (runResourceT)
 import Control.Monad.Logger (runStderrLoggingT)
+import Control.Monad.IO.Class (liftIO)
 import Data.Aeson (genericToEncoding,defaultOptions)
 import Data.Either (fromLeft,fromRight,isRight)
 import Data.Maybe (fromJust,Maybe(Nothing))
 import Data.Text (Text,pack,unpack)
 import GHC.Generics (Generic)
 import Data.Conduit (sourceToList)
+import Data.Int (Int64)
 
 import GraphQLdbi (processSchema,processQueryString,processQueryData)
 
@@ -448,7 +450,7 @@ postQueryR = do
             let variables = if (txt2==Nothing) then "" else unpack $ fromJust txt2
 
             -- get schema data
-            schema <- processSchema "app/serverschema.json"
+            schema <- liftIO $ processSchema "app/serverschema.json"
             -- get the given query string to make desired query
             let (queryData,queries) = processQueryString schema query variables
             -- query
@@ -458,7 +460,7 @@ postQueryR = do
             
             defaultLayout
                 [whamlet|
-                    <p>#{show results}
+                    <p>#{show processedResults}
                     <a href=@{HomeR}>Home
                 |]
         -- COMMENT: IN CASE FORM IS INCOMPLETE, WE RETURN TO THE FORM
