@@ -4,6 +4,7 @@
   , OverloadedStrings
   , TemplateHaskell
   , FlexibleContexts
+  , TypeFamilies
 #-}
 module Lib
     ( runQuery
@@ -14,9 +15,30 @@ import Control.Monad.Logger (NoLoggingT(..))
 import Control.Monad.Trans.Reader (ReaderT(..))
 import Data.Conduit (sourceToList)
 import Data.Text (Text,pack)
-import Database.Persist.MySQL (runSqlConn,rawQuery,withMySQLConn,defaultConnectInfo,SqlBackend,ConnectInfo,connectHost,connectPort,connectUser,connectPassword,connectDatabase,fromPersistValue,runMigrationSilent)
+import Database.Persist.MySQL (
+  runSqlConn,
+  rawQuery,
+  withMySQLConn,
+  defaultConnectInfo,
+  SqlBackend,
+  ConnectInfo,
+  connectHost,
+  connectPort,
+  connectUser,
+  connectPassword,
+  connectDatabase,
+  fromPersistValue,
+  runMigrationSilent,
+  PersistValue(PersistText,
+    PersistDouble,
+    PersistRational,
+    PersistInt64,
+    PersistBool,
+    PersistNull))
 import Database.Persist.TH (mkPersist,mkMigrate,sqlSettings,share)
 import GraphQLdbi (processSchema,processQueryString,processQueryData)
+import Data.Int (Int64)
+import Control.Monad.IO.Class (liftIO)
 
 share [mkPersist sqlSettings, mkMigrate "migrateAll"] []
 
@@ -44,7 +66,7 @@ runQuery qry vars =  do
     runMySql connectionInfo $ do
         runMigrationSilent migrateAll
         -- get schema data
-        schema <- processSchema "gqldb_schema.json"
+        schema <- liftIO $ processSchema "gqldb_schema.json"
         -- parse the given query string to make desired query
         let (packageObjects,queries) = processQueryString schema qry vars
         -- query
