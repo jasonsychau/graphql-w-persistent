@@ -21,6 +21,8 @@ To become a sponsor and/or purchase merchandise, you can visit the below [Mercha
 
 ### News Posts
 
+**2020-05-31 -** In version 0.9.1.0, I fixed a problem in getting all the data from a nested query with the aggregate functions. I now merge redundant nested objects, and I added improvements for efficiency.
+
 **2020-05-31 -** Version 0.9.0.0 is fixing several more things. Null values are now supported; table are now supported to appear more than once in joins; data types are simplified for .json file support; alternative json aggregate SQL query functions are now supported for faster queries; error is fixed from version 0.8.0.0 for more than two nested objects; inline fragments were not working in version 0.8.0.0, but it is now working; and removed a requirement for "Unexpected nulls" for null values which is making easy compliance with other databases packages and types.
 
 **2019-12-28 -** Version 0.7.0.1 is fixing the exceptions in 0.7.0.0. Version 0.8.0.0 is reducing queried data by making separate queries for every object and by reading previously queried data for parent objects. In contrast to this space-saving, data processing is slower. Thus, 0.7.0.1 is available if data is not many.
@@ -39,7 +41,7 @@ To become a sponsor and/or purchase merchandise, you can visit the below [Mercha
 
 ### Latest Recommended Version
 
-[0.7.0.1](https://hackage.haskell.org/package/graphql-w-persistent-0.7.0.1), [0.9.0.0](https://hackage.haskell.org/package/graphql-w-persistent-0.9.0.0)
+[0.7.0.1](https://hackage.haskell.org/package/graphql-w-persistent-0.7.0.1), [0.9.0.0](https://hackage.haskell.org/package/graphql-w-persistent-0.9.1.0)
 
 ### Features
 
