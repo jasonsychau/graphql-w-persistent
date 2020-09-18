@@ -9,8 +9,11 @@
     TypeFamilies,
     ViewPatterns,
     DeriveGeneric,
-    UndecidableInstances
+    UndecidableInstances,
+    DerivingStrategies,
+    StandaloneDeriving
 #-}
+
 
 module Main where
 
