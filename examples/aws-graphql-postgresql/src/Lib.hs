@@ -4,6 +4,7 @@
   , OverloadedStrings
   , TemplateHaskell
   , FlexibleContexts
+  , TypeFamilies
 #-}
 module Lib
     ( runQuery
@@ -18,9 +19,22 @@ import Data.Conduit (sourceToList)
 import Data.Text (Text,pack)
 import Data.Text.Lazy (fromStrict)
 import Data.Text.Lazy.Encoding (encodeUtf8)
-import Database.Persist.Postgresql (runSqlConn,rawQuery,withPostgresqlConn,SqlBackend,fromPersistValue,runMigrationSilent)
+import Database.Persist.Postgresql (runSqlConn,
+  rawQuery,
+  withPostgresqlConn,
+  SqlBackend,
+  fromPersistValue,
+  runMigrationSilent,
+  PersistValue(PersistText,
+    PersistDouble,
+    PersistRational,
+    PersistInt64,
+    PersistBool,
+    PersistNull))
 import Database.Persist.TH (mkPersist,mkMigrate,sqlSettings,share)
 import GraphQLdbi (processSchema,processQueryString,processQueryData)
+import Data.Int (Int64)
+import Control.Monad.IO.Class (liftIO)
 
 share [mkPersist sqlSettings, mkMigrate "migrateAll"] []
 
@@ -42,10 +56,9 @@ runQuery qry vars =  do
     runPostgresql connectionString $ do
         runMigrationSilent migrateAll
         -- get schema data
-        schema <- processSchema "gqldb_schema.json"
+        schema <- liftIO $ processSchema "gqldb_schema.json"
         -- get the given query string to make desired query
-        let (packageObjects,queries) = processQueryString
-            schema qry vars
+        let (packageObjects,queries) = processQueryString schema qry vars
         -- query
         queryResults <- mapM (mapM (mapM runQuery)) queries
         -- process data

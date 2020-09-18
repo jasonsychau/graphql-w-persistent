@@ -10,7 +10,6 @@ import AWS.Lambda.Runtime (ioRuntime)
 import Data.Aeson         (FromJSON, ToJSON)
 import Data.Either        (Either(Right))
 import GHC.Generics       (Generic)
-import GraphQL            (QueryException)
 import Lib                (runQuery)
 
 
