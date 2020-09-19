@@ -6,7 +6,7 @@ To become a sponsor and/or purchase merchandise, you can visit the below [Mercha
 
 ## graphql-w-persistent
 
-#### An application of GraphQL to SQL database querying and processing data.
+#### An efficient application of GraphQL to SQL database querying and processing data.
 
 - for your desktop applications
 - for data exploration
