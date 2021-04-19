@@ -4,6 +4,8 @@ I appreciate you.
 
 To become a sponsor and/or purchase merchandise, you can visit the below [Merchandise section](#merchandise).
 
+## Looking for Master Computer Science programs; if you are inviting students to a graduate program, I'd like a message from you. My interests are Natural Language Processing, Machine Learning, Artificial Intelligence, and a Data Science.
+
 ## graphql-w-persistent
 
 #### An efficient application of GraphQL to SQL database querying and processing data.
