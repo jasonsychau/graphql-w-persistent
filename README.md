@@ -1,9 +1,3 @@
-## Project Sponsors
-
-I appreciate you.
-
-To become a sponsor and/or purchase merchandise, you can visit the below [Merchandise section](#merchandise).
-
 ## Looking for Master of Computer Science programs; if you are inviting students to a graduate program, I'd like a message from you. My interests are Natural Language Processing, Machine Learning, Artificial Intelligence, and a Data Science.
 
 ## graphql-w-persistent
@@ -171,19 +165,3 @@ query Example4 {
   }
 }
 ```
-
-### Merchandise
-
-From my [GitHub sponsors page](https://github.com/sponsors/jasonsychau), you can order printed merchandise. This is the only way to reward the developer (me) for my hard-work!
-
-The canvas bag is simple and pretty. It is appropriate for your clothing, accessories, and snacks.
-
-
-![Canvas bag photo 1](canvas1.jpg) ![Canvas bag photo 2](canvas2.jpg) ![Canvas bag photo 3](canvas3.jpg) ![Canvas bag photo 4](canvas4.jpg) ![Canvas bag photo 5](canvas5.jpg)
-
-The mug is a standard format mug, but it is smaller and easier to hold in the hands.
-
-![Mug photo 1](mug1.jpg) ![Mug photo 2](mug2.jpg)
-
-
-<!--- <p align="center"><img alt="library image" src="./image.png"/></p> --->
