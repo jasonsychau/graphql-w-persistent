@@ -1,4 +1,4 @@
-## Looking for Master of Computer Science programs; if you are inviting students to a graduate program, I'd like a message from you. My interests are Natural Language Processing, Machine Learning, Artificial Intelligence, and a Data Science.
+## Looking for Master of Computer Science programs; if you are inviting students to a graduate program, I'd like a message from you. My interests are Natural Language Processing, Machine Learning, Artificial Intelligence, and Data Science.
 
 ## graphql-w-persistent
 
