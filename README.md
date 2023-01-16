@@ -1,4 +1,4 @@
-## Looking for employment in the software space. I have experience with different disciplines, but it is hard to say I have much experience any one tech stack. I have experience with ReactJS, Python, Java, TypeScript, C#, C++, iOS Swift, and React Native (and AWS).
+## Looking for employment in the software space. I have experience with different disciplines, but it is hard to say I have much experience any one tech stack. I have experience with ReactJS, Python, Java, TypeScript, C#, C++, iOS Swift, and React Native (and AWS and build tools and continuous development or integrations tools like GitHub Actions).
 
 ## graphql-w-persistent
 
