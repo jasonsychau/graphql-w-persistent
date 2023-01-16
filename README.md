@@ -1,4 +1,4 @@
-## Looking for Master of Computer Science programs; if you are inviting students to a graduate program, I'd like a message from you. My interests are Natural Language Processing, Machine Learning, Artificial Intelligence, and Data Science.
+## Looking for employment in the software space. I have experience with different disciplines, but it is hard to say I have much experience any one tech stack. I have experience with ReactJS, Python, Java, TypeScript, C#, C++, iOS Swift, and React Native (and AWS).
 
 ## graphql-w-persistent
 
