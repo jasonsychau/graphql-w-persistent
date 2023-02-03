@@ -2,11 +2,11 @@
 
 ## graphql-w-persistent
 
-#### An efficient application of GraphQL to SQL database querying and processing data: translate GraphQL to SQL & relation tuples to GraphQL objects, abstract SQL schemas for a fully-connected entity-relationship mapping
+#### An efficient application of GraphQL to SQL database querying and processing data: translate GraphQL to SQL & RDMS tuples to GraphQL nested objects, tranlate sparsely connected SQL schemas to fully-connected entity-relationship mapping, give GraphQL abstraction features to your query language like entity hierarchy
 
-- for your desktop applications
+- for your desktop applications or cloud native applications
 - for data exploration
-- for aggregated data
+- for data aggregations
 
 [![Hackage](https://img.shields.io/hackage/v/graphql-w-persistent.svg)](https://hackage.haskell.org/package/graphql-w-persistent)
 [![Hackage CI](http://matrix.hackage.haskell.org/api/v2/packages/graphql-w-persistent/badge)](https://matrix.hackage.haskell.org/package/graphql-w-persistent)
